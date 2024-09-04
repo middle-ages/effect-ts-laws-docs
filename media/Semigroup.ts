@@ -1,5 +1,5 @@
-import {Law, lawTests} from '#law'
 import {SemigroupTypeLambda} from '@effect/typeclass/Semigroup'
+import {Law, lawTests} from '../../../law.js'
 import {ConcreteOptions} from './options.js'
 
 declare module './options.js' {

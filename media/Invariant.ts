@@ -1,5 +1,5 @@
-import {option, unary} from '#arbitrary'
-import {addLawSet, Law, lawTests, liftEquivalences} from '#law'
+import {option, unary} from '../../../arbitrary.js'
+import {addLawSet, Law, lawTests, liftEquivalences} from '../../../law.js'
 import {Invariant as IN} from '@effect/typeclass'
 import {Invariant as optionInvariant} from '@effect/typeclass/data/Option'
 import {flow, identity, Option as OP, pipe} from 'effect'

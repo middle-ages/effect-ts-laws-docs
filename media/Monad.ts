@@ -1,8 +1,8 @@
-import {unary, unaryToKind} from '#arbitrary'
-import {Law, LawSet, liftEquivalences} from '#law'
 import {Monad as MD} from '@effect/typeclass'
 import {flow, pipe} from 'effect'
 import {TypeLambda} from 'effect/HKT'
+import {unary, unaryToKind} from '../../../arbitrary.js'
+import {Law, LawSet, liftEquivalences} from '../../../law.js'
 import {Covariant} from './Covariant.js'
 import {Options} from './options.js'
 
