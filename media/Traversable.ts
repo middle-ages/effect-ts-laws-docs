@@ -121,8 +121,8 @@ const buildLaws = <
 
     Law(
       'composition',
-      'F.traverse(G)(agb) ∘ G.map(F.traverse(H)(bhc)' +
-        ' = traverseGH(agb ∘ mapG(bhc))',
+      'F.traverse(G)(agb) ∘ G.map(F.traverse(H)(bhc))' +
+        ' = traverse(GH)(agb ∘ mapG(bhc))',
       fa,
       agb,
       bhc,

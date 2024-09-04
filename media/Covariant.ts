@@ -64,7 +64,7 @@ const buildLaws = <
     Law('identity', 'map(id) = id', fa)(a => equalsFa(F.map(a, identity), a)),
     Law(
       'composition',
-      'map(f₁ ∘ f₂) = map(f₁) ∘ map(f₂)',
+      'map(ab ∘ bc) = map(ab) ∘ map(bc)',
       fa,
       ab,
       bc,

@@ -24,7 +24,7 @@ export const Semigroup = <A>({
     'Semigroup',
     Law(
       'associativity',
-      '(a ⊹ b) ⊹ c = a ⊹ (b ⊹ c)',
+      '∀a,b,a ∈ T: (a ⊹ b) ⊹ c = a ⊹ (b ⊹ c)',
       a,
       a,
       a,
@@ -34,7 +34,7 @@ export const Semigroup = <A>({
 
     Law(
       'combineMany.associativity',
-      'combineMany(a, [b, c]) = combine(a, combine(b, c))',
+      '∀a,b,a ∈ T: combineMany(a, [b, c]) = combine(a, combine(b, c))',
       a,
       a,
       a,

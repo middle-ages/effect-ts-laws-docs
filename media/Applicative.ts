@@ -77,7 +77,7 @@ const buildLaws = <
 
     Law(
       'homomorphism',
-      'fab ▹ of ▹ (a ▹ of ▹ ap) = a ▹ fab ▹ of',
+      'ab ▹ of ▹ (a ▹ of ▹ ap) = a ▹ ab ▹ of',
       a,
       ab,
     )((a, ab) => {
