@@ -31,7 +31,7 @@ typeclass laws using
 </ol>
 <a id="md:about" class="tsd-anchor"></a><h2 class="tsd-anchor-link">About<a href="#md:about" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="md:synopsis" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Synopsis<a href="#md:synopsis" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p>Run the typeclass law tests on the <code>Order</code> and <code>Monad</code> instances of the
 effect-ts <code>Option</code> datatype:</p>
-<pre><code class="ts"><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">Monad</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@effect/typeclass/data/Option&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">Option</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">Arbitrary</span><span class="hl-1">, </span><span class="hl-2">monoOrder</span><span class="hl-1">, </span><span class="hl-2">testTypeclassLaws</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect-ts-laws&#39;</span><br/><br/><span class="hl-4">describe</span><span class="hl-1">(</span><span class="hl-3">&#39;@effect/typeclass/data/Option&#39;</span><span class="hl-1">, () </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-4">testTypeclassLaws</span><span class="hl-1">&lt;</span><span class="hl-6">OP</span><span class="hl-1">.</span><span class="hl-6">OptionTypeLambda</span><span class="hl-1">&gt;({</span><br/><span class="hl-1">    </span><span class="hl-2">getEquivalence:</span><span class="hl-1"> </span><span class="hl-2">Option</span><span class="hl-1">.</span><span class="hl-2">getEquivalence</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">getArbitrary:</span><span class="hl-1"> </span><span class="hl-2">Arbitrary</span><span class="hl-1">.</span><span class="hl-2">option</span><span class="hl-1">},</span><br/><span class="hl-1">  )({</span><br/><span class="hl-1">    </span><span class="hl-2">Order:</span><span class="hl-1"> </span><span class="hl-2">Option</span><span class="hl-1">.</span><span class="hl-4">getOrder</span><span class="hl-1">(</span><span class="hl-2">monoOrder</span><span class="hl-1">),</span><br/><span class="hl-1">    </span><span class="hl-2">Monad</span><span class="hl-1">,</span><br/><span class="hl-1">  })</span><br/><span class="hl-1">})</span>
+<pre><code class="ts"><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">Monad</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@effect/typeclass/data/Option&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">Option</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">Arbitrary</span><span class="hl-1">, </span><span class="hl-2">monoOrder</span><span class="hl-1">, </span><span class="hl-2">testTypeclassLaws</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect-ts-laws&#39;</span><br/><br/><span class="hl-4">describe</span><span class="hl-1">(</span><span class="hl-3">&#39;@effect/typeclass/data/Option&#39;</span><span class="hl-1">, () </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-4">testTypeclassLaws</span><span class="hl-1">&lt;</span><span class="hl-6">OP</span><span class="hl-1">.</span><span class="hl-6">OptionTypeLambda</span><span class="hl-1">&gt;({</span><br/><span class="hl-1">    </span><span class="hl-2">getEquivalence:</span><span class="hl-1"> </span><span class="hl-2">Option</span><span class="hl-1">.</span><span class="hl-2">getEquivalence</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">getArbitrary:</span><span class="hl-1"> </span><span class="hl-2">Arbitrary</span><span class="hl-1">.</span><span class="hl-2">option</span><span class="hl-1">,</span><br/><span class="hl-1">  })({</span><br/><span class="hl-1">    </span><span class="hl-2">Order:</span><span class="hl-1"> </span><span class="hl-2">Option</span><span class="hl-1">.</span><span class="hl-4">getOrder</span><span class="hl-1">(</span><span class="hl-2">monoOrder</span><span class="hl-1">),</span><br/><span class="hl-1">    </span><span class="hl-2">Monad</span><span class="hl-1">,</span><br/><span class="hl-1">  })</span><br/><span class="hl-1">})</span>
 </code><button type="button">Copy</button></pre>
 
 <p><em>Vitest reporter</em> shows test results for the <code>Option</code> datatype:</p>
@@ -96,6 +96,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <th><a href="media/Applicative.ts">Applicative</a></th>
 <th><a href="media/Monad.ts">Monad</a></th>
 <th><a href="media/Traversable.ts">Traversable</a></th>
+<th>Foldable</th>
 </tr>
 </thead>
 <tbody>
@@ -112,8 +113,10 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>❌</td>
 </tr>
 <tr>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -140,6 +143,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="media/Boolean.spec.ts">Boolean</a></td>
@@ -149,6 +153,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>☐</td>
 <td>☐</td>
 <td>☐</td>
 <td>☐</td>
@@ -168,6 +173,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>☐</td>
 <td>☐</td>
 <td>☐</td>
+<td>☐</td>
 </tr>
 <tr>
 <td><a href="media/String.spec.ts">String</a></td>
@@ -177,6 +183,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>☐</td>
 <td>☐</td>
 <td>☐</td>
 <td>☐</td>
@@ -196,6 +203,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>☐</td>
 <td>☐</td>
 <td>☐</td>
+<td>☐</td>
 </tr>
 <tr>
 <td><a href="media/Duration.spec.ts">Duration</a></td>
@@ -210,6 +218,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>☐</td>
 <td>☐</td>
 <td>☐</td>
+<td>☐</td>
 </tr>
 <tr>
 <td><a href="media/DateTime.spec.ts">DateTime</a></td>
@@ -217,6 +226,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td></td>
 <td>✅</td>
 <td>✅</td>
+<td>☐</td>
 <td>☐</td>
 <td>☐</td>
 <td>☐</td>
@@ -238,6 +248,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>❌</td>
 </tr>
 <tr>
 <td><a href="media/Option.spec.ts">Option</a></td>
@@ -252,6 +263,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>❌</td>
 </tr>
 <tr>
 <td><a href="media/Either.spec.ts">Either</a></td>
@@ -266,6 +278,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>❌</td>
 </tr>
 <tr>
 <td><a href="media/Array.spec.ts">Array</a></td>
@@ -280,11 +293,13 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>❌</td>
 </tr>
 <tr>
 <td>Struct</td>
 <td>❌</td>
 <td></td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
@@ -308,11 +323,13 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>❌</td>
 </tr>
 <tr>
 <td>Effect</td>
 <td>❌</td>
 <td></td>
+<td>❌</td>
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
