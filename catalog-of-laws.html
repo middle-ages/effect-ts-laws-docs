@@ -98,7 +98,7 @@
       .twoLaws,
       .threeLaws,
       .fourLaws,
-      .sixLaws {
+      .sevenLaws {
         display: grid;
         grid-template-columns: subgrid;
         grid-column: 1/7;
@@ -137,10 +137,10 @@
           font-family: monospace;
         }
       }
-      .sixLaws {
+      .sevenLaws {
         & > *:first-child,
         & > *:nth-child(2) {
-          grid-row: 1/7;
+          grid-row: 1/8;
         }
       }
       .fourLaws {
@@ -396,14 +396,12 @@
           <div>map(ab) ∘ map(bc)</div>
         </div>
 
-        <div class="sixLaws">
+        <div class="sevenLaws">
           <div style="position: relative">
             <div
               class="line line-one line-bottom"
-              style="height: calc(3.5 * var(--lh)); top: -0.75rem"></div>
-            <div
-              class="arrow-out"
-              style="top: calc(1.75 * var(--lw) + 0.25rem)"></div>
+              style="height: calc(3.95 * var(--lh)); top: -0.75rem"></div>
+            <div class="arrow-out" style="top: calc(2.2 * var(--lw))"></div>
           </div>
           <div>Applicative</div>
 
@@ -436,13 +434,18 @@
           <div>fab ▹ ap(fa)</div>
           <div>=</div>
           <div>product(fab, fa) ▹ map(([ab, a]) ⇒ ab(a))</div>
+
+          <div>flatMap consistency</div>
+          <div>fab ▹ ap(fa)</div>
+          <div>=</div>
+          <div>fab ▹ flatMap(ab ⇒ map(fa, ab))</div>
         </div>
 
         <div class="fourLaws">
           <div style="position: relative">
             <div
               class="line line-two line-bottom"
-              style="top: -13.518rem; height: 16.55rem"></div>
+              style="top: -15.025rem; height: 18.05rem"></div>
             <div class="arrow-out" style="top: calc(var(--lw) + 0.3rem)"></div>
           </div>
           <div>Monad</div>

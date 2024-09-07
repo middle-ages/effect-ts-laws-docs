@@ -355,29 +355,36 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <li>Rename to zio-style names? E.g.: <code>traverse</code> laws become <code>foreach</code> laws?</li>
 <li>Match the typeclass graph of effect-ts more accurately? E.g.: split
 <code>Product</code> laws out of <code>Applicative</code>.</li>
+<li>What is the role of <em>typeclass laws</em> in <code>effect-ts</code> where <em>typeclasses</em>
+are deemphasized?</li>
 </ol>
 <a id="md:roadmap" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Roadmap<a href="#md:roadmap" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
-<li>Tests
+<li>
+<p>Tests</p>
 <ul>
 <li>[ ] More typeclasses, more datatypes.</li>
+<li>[ ] Order laws should check opposite of <code>orderConsistency</code>: <code>≠ ⇒ ≥ ≠ ≤</code>.</li>
 </ul>
 </li>
-<li>Harness
+<li>
+<p>Harness</p>
 <ul>
-<li>[ ] Make it easier to test datatypes with multiple instances for same
-typeclass, for example <code>Option</code> and all its <code>Monoid</code>s.</li>
-<li>[ ] Typeclass tests should not be all building the same helpers. They
+<li>[x] Make it easier to test datatypes with multiple instances for same
+typeclass, for example <code>Boolean</code> and all its <code>Monoid</code>s.</li>
+<li>[x] Typeclass tests should not be all building the same helpers. They
 should be provided by the harness.</li>
 </ul>
 </li>
-<li>Composition
+<li>
+<p>Composition</p>
 <ul>
 <li>[ ] Test composition flipped.</li>
 <li>[ ] Compose arbitrary instances in composition tests.</li>
 <li>[ ] Nest three levels.</li>
 </ul>
 </li>
-<li>Arbitraries
+<li>
+<p>Arbitraries</p>
 <ul>
 <li>[ ] Investigate arbitrary instances.</li>
 <li>[ ] <code>oneof</code> arbitrary chosen from built-in instances.</li>
