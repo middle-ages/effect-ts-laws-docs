@@ -62,8 +62,6 @@ export const Monad = <
   )
 }
 
-//ap(fa)(fab) == bind(fab)(map(fa)(_))
-
 /**
  * Type lambda for the `Monad` typeclass.
  * @category type lambda

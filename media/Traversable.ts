@@ -45,10 +45,6 @@ export const Traversable = <
     ),
   )
 
-/**
- * Test typeclass laws for `Traversable`.
- * @category typeclass laws
- */
 const buildLaws = <
   F extends TypeLambda,
   A,

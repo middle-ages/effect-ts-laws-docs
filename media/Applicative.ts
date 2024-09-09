@@ -146,8 +146,6 @@ const buildLaws = <
   )
 }
 
-///ap(fa)(fab) == bind(fab)(map(fa)(_))
-
 /**
  * Type lambda for the applicative type class.
  * @category type lambda
