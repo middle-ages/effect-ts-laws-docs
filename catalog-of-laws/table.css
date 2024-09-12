@@ -170,4 +170,19 @@ article {
   grid-column: 1/-1;
   width: 100%;
   z-index: 5;
+  border-top: var(--line-table);
+}
+article {
+  & > *:nth-child(2) {
+    position: sticky;
+    top: calc(var(--line-height-header) + var(--line-height));
+    height: calc(1.5 * var(--vpad));
+    background: linear-gradient(#0003 0%, #0001 30%, #0000 100%);
+  }
+  & > *:nth-child(3) {
+    background: linear-gradient(#ffff 0%, #fff6 30%, #fff0 100%);
+    top: 0;
+    position: relative;
+    height: calc(2 * var(--vpad));
+  }
 }
