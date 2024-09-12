@@ -4,12 +4,12 @@
   <code style='color:#555'>effect-ts</code>
   Instances
 </h3>
-<p>A library for testing <a href="https://github.com/Effect-ts/effect">effect-ts</a>
+<p>A library for testing <a href="https://github.com/Effect-ts/effect" target="_blank" class="external">effect-ts</a>
 typeclass laws using
-<a href="https://github.com/dubzzz/fast-check">fast-check</a>. API is
-<a href="https://middle-ages.github.io/effect-ts-laws-docs/">documented here</a>,
+<a href="https://github.com/dubzzz/fast-check" target="_blank" class="external">fast-check</a>. API is
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/" target="_blank" class="external">documented here</a>,
 and the laws are
-<a href="https://middle-ages.github.io/effect-ts-laws-docs/catalog-of-laws.html">listed here</a>.</p>
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/catalog-of-laws.html" target="_blank" class="external">listed here</a>.</p>
 <ol>
 <li><a href="#md:about">About</a>
 <ol>
@@ -77,7 +77,7 @@ You probably have them somewhere already.</li>
 </ul>
 </li>
 </ul>
-<p>API is <a href="https://middle-ages.github.io/effect-ts-laws-docs/">documented here</a>.</p>
+<p>API is <a href="https://middle-ages.github.io/effect-ts-laws-docs/" target="_blank" class="external">documented here</a>.</p>
 <a id="md:project" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Project<a href="#md:project" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="md:status" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Status<a href="#md:status" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><p>Matrix showing <em>data-types</em> (in columns) vs. <em>typeclass law tests</em> (in rows).
 Each intersection of datatype and typeclass can be either:
 <strong>ready</strong> (✅), <strong>not ready</strong> (❌), or <strong>not relevant</strong> (☐). First data row
@@ -148,49 +148,19 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td></td>
 </tr>
 <tr>
-<td><a href="media/Boolean.spec.ts">Boolean</a></td>
+<td><a href="media/Array.spec.ts">Array</a></td>
 <td>✅</td>
 <td></td>
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-</tr>
-<tr>
-<td><a href="media/Number.spec.ts">Number</a></td>
-<td>✅</td>
-<td></td>
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-</tr>
-<tr>
-<td><a href="media/String.spec.ts">String</a></td>
 <td>✅</td>
-<td></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
+<td>❌</td>
 </tr>
 <tr>
 <td><a href="media/BigInt.spec.ts">BigInt</a></td>
@@ -208,7 +178,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>☐</td>
 </tr>
 <tr>
-<td><a href="media/Duration.spec.ts">Duration</a></td>
+<td><a href="media/Boolean.spec.ts">Boolean</a></td>
 <td>✅</td>
 <td></td>
 <td>✅</td>
@@ -238,34 +208,34 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>☐</td>
 </tr>
 <tr>
-<td><a href="media/Identity.spec.ts">Identity</a></td>
-<td>✅</td>
+<td>Effect</td>
+<td>❌</td>
 <td></td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
 <td>❌</td>
 </tr>
 <tr>
-<td><a href="media/Option.spec.ts">Option</a></td>
+<td><a href="media/Duration.spec.ts">Duration</a></td>
 <td>✅</td>
 <td></td>
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>❌</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
 </tr>
 <tr>
 <td><a href="media/Either.spec.ts">Either</a></td>
@@ -283,7 +253,37 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>❌</td>
 </tr>
 <tr>
-<td><a href="media/Array.spec.ts">Array</a></td>
+<td><a href="media/Identity.spec.ts">Identity</a></td>
+<td>✅</td>
+<td></td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td><a href="media/Number.spec.ts">Number</a></td>
+<td>✅</td>
+<td></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+<tr>
+<td><a href="media/Option.spec.ts">Option</a></td>
 <td>✅</td>
 <td></td>
 <td>✅</td>
@@ -296,6 +296,21 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>❌</td>
+</tr>
+<tr>
+<td><a href="media/Predicate.spec.ts">Predicate</a></td>
+<td>✅</td>
+<td></td>
+<td>☐</td>
+<td>☐</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
 </tr>
 <tr>
 <td><a href="media/Record.spec.ts">Record</a></td>
@@ -310,28 +325,28 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>☐</td>
 <td>☐</td>
 <td>✅</td>
-<td>❌</td>
+<td>☐</td>
 </tr>
 <tr>
-<td>Effect</td>
-<td>❌</td>
+<td><a href="media/String.spec.ts">String</a></td>
+<td>✅</td>
 <td></td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
-<td>❌</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
 </tr>
 </tbody>
 </table>
 <a id="md:more-information" class="tsd-anchor"></a><h3 class="tsd-anchor-link">More Information<a href="#md:more-information" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ul>
-<li><a href="https://middle-ages.github.io/effect-ts-laws-docs/">API documentation</a>.</li>
-<li><a href="https://middle-ages.github.io/effect-ts-laws-docs/catalog-of-laws.html">Catalog of laws</a>.</li>
+<li><a href="https://middle-ages.github.io/effect-ts-laws-docs/" target="_blank" class="external">API documentation</a>.</li>
+<li><a href="https://middle-ages.github.io/effect-ts-laws-docs/catalog-of-laws.html" target="_blank" class="external">Catalog of laws</a>.</li>
 <li><code>README</code> at <a href="documents/src_laws_typeclass_concrete_README.html">the laws for typeclasses</a> on concrete types.</li>
 <li><code>README</code> at <a href="documents/src_laws_typeclass_parameterized_README.html">the laws for typeclasses</a> on parameterized types.</li>
 <li><code>README</code> at the typeclass laws <a href="documents/tests_laws_typeclass_README.html">self-tests</a>.</li>
@@ -377,14 +392,14 @@ should be provided by the harness.</li>
 </li>
 </ul>
 <a id="md:see-also" class="tsd-anchor"></a><h2 class="tsd-anchor-link">See Also<a href="#md:see-also" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h2><ol>
-<li><a href="https://github.com/dubzzz/fast-check">fast-check</a></li>
-<li><a href="https://github.com/Effect-ts/effect">effect-ts</a></li>
-<li><a href="https://github.com/zio/zio-prelude/tree/series/2.x/laws/shared/src/main/scala/zio/prelude/laws">zio-prelude</a> laws</li>
-<li>On the <a href="https://degoes.net/articles/principled-typeclasses#laws">importance of typeclass laws</a></li>
+<li><a href="https://github.com/dubzzz/fast-check" target="_blank" class="external">fast-check</a></li>
+<li><a href="https://github.com/Effect-ts/effect" target="_blank" class="external">effect-ts</a></li>
+<li><a href="https://github.com/zio/zio-prelude/tree/series/2.x/laws/shared/src/main/scala/zio/prelude/laws" target="_blank" class="external">zio-prelude</a> laws</li>
+<li>On the <a href="https://degoes.net/articles/principled-typeclasses#laws" target="_blank" class="external">importance of typeclass laws</a></li>
 </ol>
 <a id="md:based-on" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Based On<a href="#md:based-on" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="assets/icons.svg#icon-anchor"></use></svg></a></h3><ol>
-<li><a href="https://gcanti.github.io/fp-ts-laws">fp-ts-laws</a> by
-<a href="https://github.com/gcanti">Giulio Canti</a></li>
-<li>Scala's <a href="https://typelevel.org/cats/typeclasses/lawtesting.html">Discipline</a></li>
+<li><a href="https://gcanti.github.io/fp-ts-laws" target="_blank" class="external">fp-ts-laws</a> by
+<a href="https://github.com/gcanti" target="_blank" class="external">Giulio Canti</a></li>
+<li>Scala's <a href="https://typelevel.org/cats/typeclasses/lawtesting.html" target="_blank" class="external">Discipline</a></li>
 </ol>
 </div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#md:about"><span>About</span></a><ul><li><a href="#md:synopsis"><span>Synopsis</span></a></li><li><a href="#md:overview"><span>Overview</span></a></li></ul><a href="#md:project"><span>Project</span></a><ul><li><a href="#md:status"><span>Status</span></a></li><li><a href="#md:more-information"><span>More <wbr/>Information</span></a></li><li><a href="#md:open-questions"><span>Open <wbr/>Questions</span></a></li><li><a href="#md:roadmap"><span>Roadmap</span></a></li></ul><a href="#md:see-also"><span>See <wbr/>Also</span></a><ul><li><a href="#md:based-on"><span>Based <wbr/>On</span></a></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="index.html" class="current"><svg class="tsd-kind-icon" viewBox="0 0 24 24"><use href="assets/icons.svg#icon-1"></use></svg><span>effect-ts-laws</span></a><ul class="tsd-small-nested-navigation" id="tsd-nav-container" data-base="."><li>Loading...</li></ul></nav></div></div></div><footer></footer><div class="overlay"></div></body></html>
