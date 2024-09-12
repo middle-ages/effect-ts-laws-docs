@@ -5,19 +5,13 @@
   --single-vertical: calc(50% - var(--stroke-half));
   --triple-vertical: calc(var(--single-vertical) + var(--arrow-height));
   --triple-height: calc(var(--relation-height) - var(--arrow-height));
-  --line-2-radius: calc(var(--triple-height) + var(--arrow-height));
 }
 .line {
   position: absolute;
   right: 1px;
   height: var(--relation-height);
   border-left: var(--line);
-}
-.line-1 {
   width: calc(var(--line-width));
-}
-.line-2 {
-  width: var(--line-2-width);
 }
 .line-top {
   border-top: var(--line);
@@ -35,15 +29,9 @@
   top: calc(var(--triple-vertical));
   height: var(--triple-height);
 }
-.line-top.line-1 {
+.line-top {
   border-top-left-radius: var(--triple-height);
 }
-.line-bottom.line-1 {
+.line-bottom {
   border-bottom-left-radius: var(--triple-height);
-}
-.line-top.line-2 {
-  border-top-left-radius: var(--line-2-radius);
-}
-.line-bottom.line-2 {
-  border-bottom-left-radius: var(--line-2-radius);
 }

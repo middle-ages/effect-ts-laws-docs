@@ -64,3 +64,6 @@ a {
     outline-color: var(--color-outline);
   }
 }
+d {
+  display: block;
+}

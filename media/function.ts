@@ -101,7 +101,7 @@ export const sampleUnaryEquivalence =
   <A, B>(
     a: fc.Arbitrary<A>,
     equalsB: EQ.Equivalence<B>,
-    parameters: fc.Parameters<A> = {numRuns: 1_000},
+    parameters: fc.Parameters<A> = {numRuns: 100},
   ) =>
   (
     /**

@@ -82,9 +82,9 @@
         </div>
 
         <div class="separator"></div>
-        <div class="laws laws-2" style="grid-row-start: 6">
+        <div class="laws laws-2">
           <div>
-            <div class="line line-1 line-top"></div>
+            <div class="line line-top"></div>
             <img
               class="arrow-head single"
               src="catalog-of-laws/arrow-head.svg" />
@@ -103,9 +103,9 @@
         </div>
 
         <div class="separator"></div>
-        <div class="laws laws-2" style="grid-row-start: 8">
+        <div class="laws laws-2">
           <div>
-            <div class="line line-1 line-bottom"></div>
+            <div class="line line-bottom"></div>
             <img
               class="arrow-tail single"
               src="catalog-of-laws/arrow-tail.svg" />
@@ -124,9 +124,9 @@
         </div>
 
         <div class="separator"></div>
-        <div class="laws laws-2" style="grid-row-start: 10">
+        <div class="laws laws-2">
           <div>
-            <div class="line line-1 line-top"></div>
+            <div class="line line-top"></div>
             <img
               class="arrow-head single"
               src="catalog-of-laws/arrow-head.svg" />
@@ -145,22 +145,44 @@
         </div>
 
         <div class="separator"></div>
-        <div class="laws laws-2" style="grid-row-start: 12">
+        <div class="laws laws-2">
+          <div>
+            <div class="line line-bottom"></div>
+            <img
+              class="arrow-tail single"
+              src="catalog-of-laws/arrow-tail.svg" />
+          </div>
+          <e>Contravariant</e>
+
+          <d>identity</d>
+          <d>contramap(id)</d>
+          <d>=</d>
+          <d>id</d>
+
+          <d>composition</d>
+          <d>fa ▹ contramap(ba) ▹ contramap(cb)</d>
+          <d>=</d>
+          <d>fa ▹ contramap(cb ∘ ba)</d>
+        </div>
+
+        <div class="separator"></div>
+        <div class="laws laws-2">
           <div>
             <img
               class="arrow-tail third-top"
               src="catalog-of-laws/arrow-tail.svg" />
-            <div class="line line-1 line-bottom triple-top"></div>
-
-            <img
-              class="arrow-head single"
-              src="catalog-of-laws/arrow-head.svg" />
-            <div class="line line-2 line-top"></div>
+            <div
+              class="line line-bottom triple-top"
+              style="
+                height: calc(
+                  var(--relation-height) + 4 * var(--line-height-half)
+                );
+              "></div>
 
             <img
               class="arrow-head third-bottom"
               src="catalog-of-laws/arrow-head.svg" />
-            <div class="line line-1 line-top triple-bottom"></div>
+            <div class="line line-top triple-bottom"></div>
           </div>
           <e>Covariant</e>
 
@@ -176,10 +198,10 @@
         </div>
 
         <div class="separator"></div>
-        <div class="laws laws-7" style="grid-row-start: 14">
+        <div class="laws laws-7">
           <div>
             <div
-              class="line line-1 line-bottom"
+              class="line line-bottom"
               style="
                 height: calc(
                   var(--relation-height) + 5 * var(--line-height-half)
@@ -228,10 +250,10 @@
         </div>
 
         <div class="separator"></div>
-        <div class="laws laws-4" style="grid-row-start: 16">
+        <div class="laws laws-4">
           <div>
             <div
-              class="line line-2 line-bottom"
+              class="line line-bottom"
               style="
                 height: calc(
                   var(--relation-height) + var(--gap-height-2) + 8 *
@@ -268,11 +290,7 @@
         <div class="separator"></div>
         <div
           class="laws laws-2"
-          style="
-            grid-row-start: 18;
-            padding-bottom: var(--vpad);
-            border-bottom: var(--line-table);
-          ">
+          style="padding-bottom: var(--vpad); border-bottom: var(--line-table)">
           <d></d>
           <e>Traversable</e>
 

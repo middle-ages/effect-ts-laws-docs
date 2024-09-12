@@ -1,10 +1,10 @@
 /** Typeclass law tests for the `Predicate` datatype. */
 import {
+  Contravariant,
   getMonoidEqv,
   getMonoidEvery,
   getMonoidSome,
   getMonoidXor,
-  Invariant,
 } from '@effect/typeclass/data/Predicate'
 import {Boolean as BO, pipe} from 'effect'
 import {
@@ -21,7 +21,7 @@ const Equivalence = getMonoUnaryEquivalence(BO.Equivalence)
 
 describe('@effect/typeclass/data/Predicate', () => {
   pipe(
-    {Invariant},
+    {Contravariant},
     testTypeclassLaws.contravariant<PredicateTypeLambda>({
       Arbitrary,
       Equivalence,

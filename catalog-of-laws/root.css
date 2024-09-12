@@ -8,9 +8,9 @@
   --arrow-width: 6px;
   --arrow-height: 10px;
   --hpad: 1rem;
-  --vpad: 4px;
+  --vpad: 8px;
   --vpad-laws: 8px;
-  --stroke: 1.3px;
+  --stroke: 1.2px;
   --font-size-factor: 1;
   --font-size-header-factor: 1.25;
   --line-height-factor: 1.3;
@@ -25,7 +25,8 @@
   --line-width: calc(3 * var(--line-height) / 2);
   --line-width-total: calc(var(--line-2-width) + var(--arrow-height));
   --line: var(--stroke) solid var(--color-line);
-  --line-table: 1.5px solid var(--color-highest);
+  --line-table: 1.5px solid var(--color-higher);
+  --line-table-high: 1.5px solid var(--color-highest);
   --line-height-header: calc(7 * var(--font-size-header) / 4);
   /** Multiples */
   --line-height-third: calc(var(--line-height) / 3);
@@ -37,8 +38,9 @@
   --separator-height-2: calc(2 * var(--separator-height));
   --line-height-2: calc(var(--line-height) * 2);
   /** Colors */
-  --color-highest: #bbd;
-  --color-higher: #99a;
+  --color-highest: #cce;
+  --color-higher: #bbd;
+  --color-high: #99a;
   --color-low: #779;
   --color-lower: #336;
   --color-line: #555;
