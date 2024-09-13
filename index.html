@@ -82,7 +82,8 @@ You probably have them somewhere already.</li>
 Each intersection of datatype and typeclass can be either:
 <strong>ready</strong> (✅), <strong>not ready</strong> (❌), or <strong>not relevant</strong> (☐). First data row
 show the <em>typeclass laws</em> implementation status, and first data column shows
-<em>datatype tests</em> implementation status.</p>
+<em>datatype tests</em> implementation status. Note <code>Equivalence</code> and <code>Order</code> are
+both typeclasses <em>and</em> datatypes.</p>
 <table>
 <thead>
 <tr>
@@ -98,6 +99,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <th><a href="media/Covariant.ts">Covariant</a></th>
 <th><a href="media/Applicative.ts">Applicative</a></th>
 <th><a href="media/Monad.ts">Monad</a></th>
+<th><a href="media/Bicovariant.ts">Bicovariant</a></th>
 <th><a href="media/Traversable.ts">Traversable</a></th>
 <th>Foldable</th>
 </tr>
@@ -117,9 +119,11 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>✅</td>
 <td>❌</td>
 </tr>
 <tr>
+<td></td>
 <td></td>
 <td></td>
 <td></td>
@@ -150,6 +154,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td></td>
 <td></td>
 <td></td>
+<td></td>
 </tr>
 <tr>
 <td><a href="media/Array.spec.ts">Array</a></td>
@@ -164,6 +169,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>☐</td>
 <td>✅</td>
 <td>❌</td>
 </tr>
@@ -175,6 +181,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>☐</td>
 <td>☐</td>
 <td>☐</td>
 <td>☐</td>
@@ -198,6 +205,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>☐</td>
 <td>☐</td>
 <td>☐</td>
+<td>☐</td>
 </tr>
 <tr>
 <td><a href="media/DateTime.spec.ts">DateTime</a></td>
@@ -206,6 +214,24 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+<tr>
+<td><a href="media/Duration.spec.ts">Duration</a></td>
+<td>✅</td>
+<td></td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
+<td>✅</td>
 <td>☐</td>
 <td>☐</td>
 <td>☐</td>
@@ -228,24 +254,9 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>❌</td>
 <td>❌</td>
 <td>❌</td>
+<td>☐</td>
 <td>❌</td>
 <td>❌</td>
-</tr>
-<tr>
-<td><a href="media/Duration.spec.ts">Duration</a></td>
-<td>✅</td>
-<td></td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>✅</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
-<td>☐</td>
 </tr>
 <tr>
 <td><a href="media/Either.spec.ts">Either</a></td>
@@ -261,6 +272,24 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Equivalence</td>
+<td>❌</td>
+<td></td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>☐</td>
+<td>❌</td>
 <td>❌</td>
 </tr>
 <tr>
@@ -276,6 +305,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>☐</td>
 <td>✅</td>
 <td>❌</td>
 </tr>
@@ -287,6 +317,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>☐</td>
 <td>☐</td>
 <td>☐</td>
 <td>☐</td>
@@ -308,7 +339,25 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>☐</td>
 <td>✅</td>
+<td>❌</td>
+</tr>
+<tr>
+<td>Order</td>
+<td>❌</td>
+<td></td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>❌</td>
+<td>☐</td>
+<td>❌</td>
 <td>❌</td>
 </tr>
 <tr>
@@ -321,6 +370,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>✅</td>
 <td>✅</td>
+<td>☐</td>
 <td>☐</td>
 <td>☐</td>
 <td>☐</td>
@@ -340,6 +390,7 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>✅</td>
 <td>☐</td>
 <td>☐</td>
+<td>☐</td>
 <td>✅</td>
 <td>☐</td>
 </tr>
@@ -356,6 +407,24 @@ show the <em>typeclass laws</em> implementation status, and first data column sh
 <td>☐</td>
 <td>☐</td>
 <td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+</tr>
+<tr>
+<td><a href="media/Tuple.spec.ts">Tuple</a></td>
+<td>✅</td>
+<td></td>
+<td>✅</td>
+<td>✅</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>☐</td>
+<td>✅</td>
 <td>☐</td>
 <td>☐</td>
 </tr>
@@ -380,16 +449,14 @@ are deemphasized?</li>
 <p>Tests</p>
 <ul>
 <li>[ ] More typeclasses, more datatypes.</li>
-<li>[ ] Order laws should check opposite of <code>orderConsistency</code>: <code>≠ ⇒ ≥ ≠ ≤</code>.</li>
+<li>[ ] Bicovariant should do Invariant laws twice.</li>
+<li>[ ] Schema decode/encode laws</li>
 </ul>
 </li>
 <li>
 <p>Harness</p>
 <ul>
-<li>[x] Make it easier to test datatypes with multiple instances for same
-typeclass, for example <code>Boolean</code> and all its <code>Monoid</code>s.</li>
-<li>[x] Typeclass tests should not be all building the same helpers. They
-should be provided by the harness.</li>
+<li>[ ] API should let you use any catalog</li>
 </ul>
 </li>
 <li>
@@ -403,7 +470,6 @@ should be provided by the harness.</li>
 <li>
 <p>Arbitraries</p>
 <ul>
-<li>[ ] Investigate arbitrary instances.</li>
 <li>[ ] <code>oneof</code> arbitrary chosen from built-in instances.</li>
 </ul>
 </li>
