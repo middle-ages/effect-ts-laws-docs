@@ -165,12 +165,7 @@
             <arrow-head class="bottom-3"></arrow-head>
             <div
               class="line third-top up line-2"
-              style="
-                height: calc(
-                  var(--line-half) + 2 * var(--line-height) + var(--gap-height) +
-                    var(--arrow-height)
-                );
-              "></div>
+              style="height: var(--quad-height)"></div>
             <div class="line middle-top down line-2"></div>
             <div class="line third-bottom down"></div>
           </div>
@@ -194,8 +189,7 @@
               class="line middle-bottom up"
               style="
                 height: calc(
-                  3 * var(--line-height) + var(--arrow-height) -
-                    var(--vpad-laws) + var(--stroke)
+                  var(--relation-height) + 5 * var(--line-height-half)
                 );
               "></div>
             <arrow-tail class="middle"></arrow-tail>
@@ -245,8 +239,8 @@
               class="line middle-bottom up line-2"
               style="
                 height: calc(
-                  var(--relation-height) + 8 * var(--line-height) +
-                    var(--gap-height) + var(--line-height-half) - var(--stroke)
+                  2 * var(--relation-height) + 14 * var(--line-height-half) +
+                    var(--gap-height)
                 );
               "></div>
             <arrow-tail class="middle"></arrow-tail>
@@ -276,20 +270,25 @@
 
         <div class="separator"></div>
         <div
-          class="laws laws-2"
+          class="laws laws-3"
           style="padding-bottom: var(--vpad); border-bottom: var(--line-table)">
           <d></d>
           <e>Traversable</e>
 
           <d>identity</d>
-          <d>traverse(id)</d>
+          <d>Id.traverse(id)</d>
           <d>=</d>
           <d>id</d>
 
           <d>composition</d>
-          <d>F.traverse(G)(agb) ∘ G.map(F.traverse(H)(bhc))</d>
+          <d>G.traverse(agb) ∘ G.map(H.traverse(bhc))</d>
           <d>=</d>
-          <d>traverse(GH)(agb ∘ mapG(bhc))</d>
+          <d>GH.traverse(agb ∘ G.map(bhc))</d>
+
+          <d>map consistency</d>
+          <d>F.map(ab)</d>
+          <d>=</d>
+          <d>Id.traverse(ab)</d>
         </div>
       </article>
     </div>
