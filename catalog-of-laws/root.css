@@ -7,13 +7,13 @@
   --unit: 16px;
   --hpad: 1rem;
   --vpad: 10px;
-  --vpad-laws: 6px;
+  --vpad-laws: 4px;
   --stroke: 1px;
   --font-size-factor: 1;
   --font-size-header-factor: 1.5;
   --line-height-factor: 1.5;
-  --separator-height-factor: calc(1/3);
-  --hide-right: 2px;
+  --separator-height-factor: 0.4;
+  --hide-right: 1px;
   --arrow-width: 6px;
   --arrow-height: 10px;
   /** Computed */
