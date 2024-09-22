@@ -50,11 +50,6 @@ article {
       border-image: linear-gradient(to right, #d8d8ec 0, #fdfdff 100%);
       border-image-width: calc(100% - 2px) 2px 0 0;
       margin-top: 2px;
-      /*
-      border-left: 2px solid #bbd;
-      border-right: 2px solid #eef;
-      mask-border-source: linear-gradient(#000 0, #f00 100%);
-      */
     }
     & > *:last-child {
       border-image: none;

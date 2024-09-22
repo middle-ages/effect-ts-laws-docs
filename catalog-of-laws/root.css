@@ -34,6 +34,7 @@
   --separator-height-half: calc(var(--separator-height) / 2);
   --stroke-half: calc(var(--stroke) / 2);
   --hpad-half: calc(var(--hpad) / 2);
+  --hpad-2: calc(var(--hpad) * 2);
   --vpad-half: calc(var(--vpad) / 2);
   --separator-height-2: calc(2 * var(--separator-height));
   --line-height-2: calc(var(--line-height) * 2);
