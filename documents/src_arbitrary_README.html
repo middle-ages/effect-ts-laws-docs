@@ -3,8 +3,8 @@
 <a id="md:data" class="tsd-anchor"></a><h2 class="tsd-anchor-link"><a href="../media/data.ts">Data</a><a href="#md:data" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><table>
 <thead>
 <tr>
-<th></th>
-<th></th>
+<th>Name</th>
+<th>Signature</th>
 <th></th>
 <th></th>
 </tr>
@@ -17,14 +17,26 @@
 <td><code>Arbitrary&lt;number&gt;</code></td>
 </tr>
 <tr>
+<td>tinyArray</td>
+<td><code>&lt;A&gt;(a: Arbitrary&lt;A&gt;)</code></td>
+<td><span style='font-family: serif'>⇒</span></td>
+<td><code>Arbitrary&lt;A[]&gt;</code></td>
+</tr>
+<tr>
+<td>tinyIntegerArray</td>
+<td></td>
+<td></td>
+<td><code>Arbitrary&lt;number[]&gt;</code></td>
+</tr>
+<tr>
 <td>option</td>
-<td><code>(a: Arbitrary&lt;A&gt;)</code></td>
+<td><code>&lt;A&gt;(a: Arbitrary&lt;A&gt;)</code></td>
 <td><span style='font-family: serif'>⇒</span></td>
 <td><code>Arbitrary&lt;Option&lt;A&gt;&gt;</code></td>
 </tr>
 <tr>
 <td>either</td>
-<td><code>(e: Arbitrary&lt;E&gt;, a: Arbitrary&lt;A&gt;)</code></td>
+<td><code>&lt;A, E&gt;(e: Arbitrary&lt;E&gt;, a: Arbitrary&lt;A&gt;)</code></td>
 <td><span style='font-family: serif'>⇒</span></td>
 <td><code>Arbitrary&lt;Either&lt;A, E&gt;&gt;</code></td>
 </tr>
@@ -33,6 +45,18 @@
 <td><code>(m: Arbitrary&lt;string&gt;)</code></td>
 <td><span style='font-family: serif'>⇒</span></td>
 <td><code>Arbitrary&lt;Error&gt;</code></td>
+</tr>
+<tr>
+<td>list</td>
+<td><code>&lt;A&gt;(a: Arbitrary&lt;A&gt;)</code></td>
+<td><span style='font-family: serif'>⇒</span></td>
+<td><code>Arbitrary&lt;List&lt;A&gt;&gt;</code></td>
+</tr>
+<tr>
+<td>cause</td>
+<td><code>&lt;E&gt;(e: Arbitrary&lt;E&gt;, defect?: Arbitrary&lt;unknown&gt;)</code></td>
+<td><span style='font-family: serif'>⇒</span></td>
+<td><code>Arbitrary&lt;Cause&lt;E&gt;&gt;</code></td>
 </tr>
 </tbody>
 </table>
