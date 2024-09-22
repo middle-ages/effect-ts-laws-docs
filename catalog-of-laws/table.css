@@ -117,6 +117,8 @@ article {
   .laws-2::before,
   .laws-3::before,
   .laws-4::before,
+  .laws-5::before,
+  .laws-6::before,
   .laws-7::before {
     opacity: 40%;
     z-index: -5;
@@ -140,20 +142,43 @@ article {
   .laws-4::before {
     grid-row: 1/5;
   }
+  .laws-5::before {
+    grid-row: 1/6;
+  }
+  .laws-6::before {
+    grid-row: 1/7;
+  }
   .laws-7::before {
     grid-row: 1/8;
   }
   .laws-3,
   .laws-4,
+  .laws-5,
+  .laws-6,
   .laws-7 {
     & > *:nth-child(n + 11):nth-child(-n + 14) {
       grid-row: 3/4;
     }
   }
   .laws-4,
+  .laws-5,
+  .laws-6,
   .laws-7 {
     & > *:nth-child(n + 15):nth-child(-n + 18) {
       grid-row: 4/5;
+    }
+  }
+  .laws-5,
+  .laws-6,
+  .laws-7 {
+    & > *:nth-child(n + 19):nth-child(-n + 22) {
+      grid-row: 5/6;
+    }
+  }
+  .laws-6,
+  .laws-7 {
+    & > *:nth-child(n + 23):nth-child(-n + 26) {
+      grid-row: 6/7;
     }
   }
   .laws-7 {
@@ -161,14 +186,20 @@ article {
     & > *:nth-child(2) {
       grid-row: 1/8;
     }
-    & > *:nth-child(n + 19):nth-child(-n + 22) {
-      grid-row: 5/6;
-    }
-    & > *:nth-child(n + 23):nth-child(-n + 26) {
-      grid-row: 6/7;
-    }
     & > *:nth-child(n + 27):nth-child(-n + 30) {
       grid-row: 7/8;
+    }
+  }
+  .laws-6 {
+    & > *:first-child,
+    & > *:nth-child(2) {
+      grid-row: 1/7;
+    }
+  }
+  .laws-5 {
+    & > *:first-child,
+    & > *:nth-child(2) {
+      grid-row: 1/6;
     }
   }
   .laws-4 {
