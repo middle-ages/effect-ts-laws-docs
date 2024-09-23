@@ -10,14 +10,14 @@ laws {
 }
 article {
   position: relative;
-  top: var(--line-height-header);
+  top: calc(var(--line-height-header));
   grid-template-columns: repeat(2, min-content) 22rex repeat(3, min-content);
   background:
     linear-gradient(#ffff calc(var(--line-height)),
       #ffff calc(var(--line-height) + var(--vpad)),
       #fff0 calc(var(--line-height) + 4 * var(--vpad))),
-    linear-gradient(#0006 0,
-      #0000 calc(3.25 * var(--line-height)));
+    linear-gradient(#0005 0,
+      #0000 calc(3 * var(--line-height)));
   background-attachment: scroll, fixed;
   separator {
     height: var(--separator-height);
@@ -29,9 +29,10 @@ article {
   }
   .header {
     position: sticky;
+    width: 100%;
+    top: calc(var(--line-height-header));
     z-index: 55;
     grid-row: 1/2;
-    top: calc(var(--line-height-header) + 2px);
     border-top: var(--line-table-high);
     border-bottom: var(--line-table);
     background: var(--color-bg);
@@ -40,7 +41,6 @@ article {
       color: var(--color-header);
       border-image: linear-gradient(to right, #d8d8ec 0, #fdfdff 100%);
       border-image-width: calc(100% - 2px) 2px 0 0;
-      margin-top: 2px;
     }
     & > *:last-child {
       border-image: none;
