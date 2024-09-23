@@ -56,19 +56,22 @@ h1 {
   position: relative;
 }
 a {
+  display: inline-block;
+  z-index: 45;
   text-decoration: none;
+  &:hover {
+    text-decoration: underline;
+  }
+}
+a.home {
+  /*
   outline-offset: 2px;
   outline-width: 2px;
   outline-style: dotted;
   border-radius: 4px;
   outline-color: transparent;
-  &:hover {
-    text-decoration: underline;
-  }
   &:focus {
     outline-color: var(--color-outline);
   }
-}
-d {
-  display: block;
+  */
 }

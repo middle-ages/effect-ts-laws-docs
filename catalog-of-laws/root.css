@@ -39,8 +39,8 @@
   --color-table-line: #bbd;
   --color-op: #88a;
   --color-lower: var(--color-line);
-  --color-line: #446;
+  --color-line: #556;
   --color-outline: #dbe;
-  --color-law-bg: #efeeed;
+  --color-law-bg: #eae9e8;
   --color-bg: #fff;
 }
