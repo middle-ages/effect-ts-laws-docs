@@ -66,7 +66,7 @@
           </div>
           <e>Semigroup</e>
 
-          <d>associativity</d><d>(a ⊹ b) ⊹ c</d><d>=</d><d>a ⊹ (b ⊹ c)</d>
+          <d>associativity</d><d>(a ⊕ b) ⊕ c</d><d>=</d><d>a ⊕ (b ⊕ c)</d>
 
           <d>combineMany associativity</d>
           <d>combineMany(a, [b, c])</d>
@@ -78,13 +78,13 @@
         <laws style="--laws: 2">
           <div>
             <line-middle-bottom></line-middle-bottom>
-            <arrow-tail-middle></arrow-tail>
+            <arrow-tail-middle></arrow-tail-middle>
           </div>
           <e>Monoid</e>
 
-          <d>left identity</d><d>∅ ⊹ a</d><d>=</d><d>a</d>
+          <d>left identity</d><d>∅ ⊕ a</d><d>=</d><d>a</d>
 
-          <d>right identity</d><d>a</d><d>=</d><d>a ⊹ ∅</d>
+          <d>right identity</d><d>a</d><d>=</d><d>a ⊕ ∅</d>
         </laws>
 
         <separator></separator>
@@ -109,7 +109,7 @@
         <laws style="--laws: 2">
           <div>
             <line-middle-bottom></line-middle-bottom>
-            <arrow-tail-middle></arrow-tail>
+            <arrow-tail-middle></arrow-tail-middle>
           </div>
           <e>Contravariant</e>
 
@@ -150,7 +150,7 @@
                   var(--gap-line-height) + 5 * var(--line-height-half)
                 );
               "></line>
-            <arrow-tail-middle></arrow-tail>
+            <arrow-tail-middle></arrow-tail-middle>
           </div>
           <e>Applicative</e>
 
@@ -198,7 +198,7 @@
                     var(--gap-height)
                 );
               "></line>
-            <arrow-tail-middle></arrow-tail>
+            <arrow-tail-middle></arrow-tail-middle>
           </div>
           <e>Monad</e>
 
