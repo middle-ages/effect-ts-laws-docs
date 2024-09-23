@@ -6,7 +6,7 @@
   --line-height: 28px;
   --font-size: 16px;
   --hpad: 1rem;
-  --vpad: 10px;
+  --vpad: 12px;
   --vpad-laws: 6px;
   --stroke: 1.25px;
   --font-size-header-factor: 1.5;
@@ -22,7 +22,7 @@
   --line-width-total: calc(var(--line-2-width) + var(--arrow-height));
   --line: var(--stroke) solid var(--color-line);
   --line-table: 1px solid var(--color-table-line);
-  --line-table-high: 1.5px solid var(--color-table-line-high);
+  --line-table-high: 1px solid var(--color-table-line-high);
   --line-height-header: calc(7 * var(--font-size-header) / 4);
   /** Multiples */
   --line-height-third: calc(var(--line-height) / 3);
@@ -41,6 +41,6 @@
   --color-lower: var(--color-line);
   --color-line: #446;
   --color-outline: #dbe;
-  --color-law-bg: #fffefd;
+  --color-law-bg: #efeeed;
   --color-bg: #fff;
 }
