@@ -47,7 +47,7 @@ header {
     right: var(--hpad-half);
     display: block;
     background: var(--color-bg);
-    padding-right: var(--hpad-half);
+    padding-right: var(--hpad);
   }
 }
 h1 {
@@ -55,7 +55,6 @@ h1 {
   font-size: var(--font-size-header);
   color: var(--color-low);
   font-weight: 500;
-  padding: 0;
   margin: 0;
 }
 a {
