@@ -3,11 +3,7 @@
 @import "table.css";
 @import "arrows.css";
 @import "lines.css";
-/*
-html * {
-  transition: all 0.1s linear;
-}
-  */
+@import "tex.css";
 html {
   padding: 0;
   margin: 0;
@@ -53,7 +49,7 @@ header {
 h1 {
   text-align: center;
   font-size: var(--font-size-header);
-  color: var(--color-low);
+  color: var(--color-title);
   font-weight: 500;
   margin: 0;
 }
