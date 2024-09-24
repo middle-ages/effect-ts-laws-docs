@@ -16,15 +16,11 @@ article {
     linear-gradient(#ffff calc(var(--line-height)),
       #ffff calc(var(--line-height) + var(--vpad)),
       #fff0 calc(var(--line-height) + 4 * var(--vpad))),
-    linear-gradient(#0006 0,
+    linear-gradient(#0007 0,
       #0000 calc(3 * var(--line-height)));
   background-attachment: scroll, fixed;
-  separator {
-    height: var(--separator-height);
-  }
   laws,
-  .header,
-  separator {
+  .header {
     grid-column: 1/-1;
   }
   .header {
@@ -47,6 +43,7 @@ article {
   }
   laws {
     text-wrap: nowrap;
+    margin-top: var(--separator-height);
     z-index: 10;
     & > *:nth-child(n + 2):nth-child(-n + 6) {
       padding-top: var(--vpad-laws);
