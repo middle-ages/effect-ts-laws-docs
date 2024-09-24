@@ -37,15 +37,14 @@ export const Order = <A>({
 
   return concreteLaws('Order', consistencyLaw)(
     suffix,
-    build('lte', '≤', lte, gt),
-    build('gte', '≥', gte, lt),
+    build('≤', lte, gt),
+    build('≥', gte, lt),
   )
 }
 
 export const buildLaws =
   <A>(a: fc.Arbitrary<A>, equalsA: EQ.Equivalence<A>) =>
   (
-    suffix: string,
     sym: string,
     op: (a: A, b: A) => boolean,
     complement: (a: A, b: A) => boolean,
@@ -82,7 +81,7 @@ export const buildLaws =
         a,
         a,
       )((a, b) => BO.implies(op(a, b), !complement(a, b))),
-    )(suffix)
+    )(sym)
 
 declare module './given.js' {
   interface ConcreteLambdas {
