@@ -3,12 +3,12 @@
    *              1        2       3    4     5      6
    * columns: extends, typeclass, law, lhs, center, rhs 
    */
-  --line-height: 26px;
-  --line-height-header: 38px;
-  --font-size: 16px;
+  --font-size: 17px;
+  --line-height: calc(1.6 * var(--font-size));
+  --line-height-header: 40px;
   --hpad: 12px;
   --vpad: 12px;
-  --vpad-laws: 6px;
+  --vpad-laws: 4px;
   --stroke: 1.25px;
   --font-size-header-factor: 1.5;
   --separator-height-factor: 0.3;

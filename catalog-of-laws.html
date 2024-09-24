@@ -33,8 +33,8 @@
   </head>
   <body>
     <macro>$\global\def\empty{\htmlClass{empty}{\varnothing}}$</macro>
-    <macro>$\global\def\pipe{\:\htmlClass{pipe}{\footnotesize{▹}}\,}$</macro>
-    <macro>$\global\def\flow{\:\htmlClass{flow}{\scriptsize{∘}}\,}$</macro>
+    <macro>$\global\def\▹{\:\htmlClass{pipe}{\footnotesize{▹}}\,}$</macro>
+    <macro>$\global\def\∘{\:\htmlClass{flow}{\scriptsize{∘}}\,}$</macro>
     <macro>$\global\def\fn#1{\htmlClass{fn}{#1}}$</macro>
     <macro>$\global\def\imap{\fn{imap}}$</macro>
     <macro>$\global\def\map{\fn{map}}$</macro>
@@ -144,9 +144,9 @@
           <d>$\id$</d>
 
           <d>composition</d>
-          <d>$\imap(ab, ba) \flow \imap(bc, cb)$</d>
+          <d>$\imap(ab, ba) \∘ \imap(bc, cb)$</d>
           <d>$=$</d>
-          <d>$\imap(bc \flow ab, ba \flow cb)$</d>
+          <d>$\imap(bc \∘ ab, ba \∘ cb)$</d>
         </laws>
 
         <separator></separator>
@@ -161,9 +161,9 @@
           <d>$\contramap(\id)$</d><d>$=$</d><d>$\id$</d>
 
           <d>composition</d>
-          <d>$\contramap(ba) \flow \contramap(cb)$</d>
+          <d>$\contramap(ba) \∘ \contramap(cb)$</d>
           <d>$=$</d>
-          <d>$\contramap(ba \flow cb)$</d>
+          <d>$\contramap(ba \∘ cb)$</d>
         </laws>
 
         <separator></separator>
@@ -181,9 +181,9 @@
           <d>identity</d><d>$\map(\id)$</d><d>$=$</d><d>$\id$</d>
 
           <d>composition</d>
-          <d>$\map(ab) \flow \map(bc)$</d>
+          <d>$\map(ab) \∘ \map(bc)$</d>
           <d>$=$</d>
-          <d>$\map(bc \flow ab)$</d>
+          <d>$\map(bc \∘ ab)$</d>
         </laws>
 
         <separator></separator>
@@ -201,32 +201,32 @@
           <e>Applicative</e>
 
           <d>identity</d>
-          <d>$\id \,\pipe\, \of \,\pipe\, \ap(a)$</d><d>$=$</d><d>$a$</d>
+          <d>$\id \,\▹ \, \of \,\▹ \, \ap(a)$</d><d>$=$</d><d>$a$</d>
 
           <d>homomorphism</d>
-          <d>$ab \pipe \of \pipe (a \pipe \of \pipe \ap)$</d>
+          <d>$ab \▹ \of \▹ (a \▹ \of \▹ \ap)$</d>
           <d>$=$</d>
-          <d>$a \pipe ab \pipe \of$</d>
+          <d>$a \▹ ab \▹ \of$</d>
 
           <d>associative composition</d>
-          <d>$fbc\, \pipe \map(\compose) \pipe \ap(fab) \pipe \ap(fa)$</d>
+          <d>$fbc\, \▹ \map(\compose) \▹ \ap(fab) \▹ \ap(fa)$</d>
           <d>$=$</d>
-          <d>$fbc\, \pipe \ap\big(fab \pipe \ap(fa)\big)$</d>
+          <d>$fbc\, \▹ \ap\big(fab \▹ \ap(fa)\big)$</d>
 
           <d>interchange</d>
-          <d>$fab\, \pipe \ap\big(\of(a)\big)$</d>
+          <d>$fab\, \▹ \ap\big(\of(a)\big)$</d>
           <d>$=$</d>
-          <d>$a \pipe \apply \pipe \of \pipe \ap(fab)$</d>
+          <d>$a \▹ \apply \▹ \of \▹ \ap(fab)$</d>
 
           <d>map consistency</d>
-          <d>$fa \pipe \map(ab)$</d>
+          <d>$fa \▹ \map(ab)$</d>
           <d>$=$</d>
-          <d>$ab \pipe \of \pipe \ap(fa)$</d>
+          <d>$ab \▹ \of \▹ \ap(fa)$</d>
 
           <d>product consistency</d>
-          <d>$fab\, \pipe \ap(fa)$</d>
+          <d>$fab\, \▹ \ap(fa)$</d>
           <d>$=$</d>
-          <d>$\product(fab, fa) \pipe \map\big(([ab, a]) ⇒ ab(a)\big)$</d>
+          <d>$\product(fab, fa) \▹ \map\big(([ab, a]) ⇒ ab(a)\big)$</d>
 
           <d>flatMap consistency</d>
           <d>$\ap(fa)$</d>
@@ -249,20 +249,20 @@
           </div>
           <e>Monad</e>
 
-          <d>left identity</d><d>$\of \flow \flatMap(afb)$</d><d>$=$</d
+          <d>left identity</d><d>$\of \∘ \flatMap(afb)$</d><d>$=$</d
           ><d>$afb$</d>
 
           <d>right identity</d><d>$\flatMap(\of)$</d><d>$=$</d><d>$\id$</d>
 
           <d>associativity</d>
-          <d>$\flatMap(afb) \flow \flatMap(bfc)$</d>
+          <d>$\flatMap(afb) \∘ \flatMap(bfc)$</d>
           <d>$=$</d>
-          <d>$\flatMap\big(\flatMap(bfc) \flow afb\big)$</d>
+          <d>$\flatMap\big(\flatMap(bfc) \∘ afb\big)$</d>
 
           <d>map consistency</d>
           <d>$\map(ab)$</d>
           <d>$=$</d>
-          <d>$\flatMap(\of \flow ab)$</d>
+          <d>$\flatMap(\of \∘ ab)$</d>
         </laws>
 
         <separator></separator>
@@ -278,9 +278,9 @@
           <d>identity</d><d>$\Id.\traverse(\id)$</d><d>$=$</d><d>$\id$</d>
 
           <d>composition</d>
-          <d>$\G.\map\big(\H.\traverse(bhc)\big) \flow \G.\traverse(agb)$</d>
+          <d>$\G.\map\big(\H.\traverse(bhc)\big) \∘ \G.\traverse(agb)$</d>
           <d>$=$</d>
-          <d>$\GH.\traverse\big(\G.\map(bhc) \flow agb\big)$</d>
+          <d>$\GH.\traverse\big(\G.\map(bhc) \∘ agb\big)$</d>
 
           <d>map consistency</d>
           <d>$\F.\map(ab)$</d>

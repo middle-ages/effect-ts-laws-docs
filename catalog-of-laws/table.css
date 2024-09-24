@@ -16,7 +16,7 @@ article {
     linear-gradient(#ffff calc(var(--line-height)),
       #ffff calc(var(--line-height) + var(--vpad)),
       #fff0 calc(var(--line-height) + 4 * var(--vpad))),
-    linear-gradient(#0005 0,
+    linear-gradient(#0006 0,
       #0000 calc(3 * var(--line-height)));
   background-attachment: scroll, fixed;
   separator {
@@ -36,11 +36,10 @@ article {
     border-top: var(--line-table-high);
     border-bottom: var(--line-table);
     background: var(--color-bg);
+    padding-right: var(--hide-right);
     & > * {
       text-align: center;
       color: var(--color-header);
-      border-image: linear-gradient(to right, #d8d8ec 0, #fdfdff 100%);
-      border-image-width: calc(100% - 2px) 2px 0 0;
     }
     & > *:last-child {
       border-image: none;
