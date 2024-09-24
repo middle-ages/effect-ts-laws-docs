@@ -3,10 +3,10 @@
    *              1        2       3    4     5      6
    * columns: extends, typeclass, law, lhs, center, rhs 
    */
-  --line-height: 28px;
+  --line-height: 26px;
   --line-height-header: 38px;
   --font-size: 16px;
-  --hpad: 1rem;
+  --hpad: 12px;
   --vpad: 12px;
   --vpad-laws: 6px;
   --stroke: 1.25px;
@@ -33,13 +33,14 @@
   --hpad-2: calc(var(--hpad) * 2);
   --line-height-2: calc(var(--line-height) * 2);
   /** Colors */
-  --color-title: #556;
+  --color-title: #567;
   --color-header: #669;
+  --color-typeclass: #686261;
+  --color-law: #40444a;
   --color-table-line-high: #cce;
   --color-table-line: #bbd;
   --color-op: #88a;
-  --color-lower: var(--color-line);
-  --color-line: #556;
+  --color-line: #777;
   --color-outline: #84d;
   --color-law-bg: #eae9e8;
   --color-bg: #fff;

@@ -70,5 +70,4 @@ a {
 a.home {
   position: relative;
   top: 0;
-  right: var(--hpad-half);
 }
