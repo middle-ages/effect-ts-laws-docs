@@ -1,6 +1,6 @@
+import {Law} from '#law'
 import {BoundedTypeLambda} from '@effect/typeclass/Bounded'
 import {Order as OD} from 'effect'
-import {Law} from '../../../law.js'
 import {ConcreteGiven, concreteLaws} from './given.js'
 
 /**

@@ -1,6 +1,6 @@
 import {Monoid as MO} from '@effect/typeclass'
 import {TypeLambda} from 'effect/HKT'
-import {Law} from '../../../law.js'
+import {Law} from '#law'
 import {ConcreteGiven, concreteLaws} from './given.js'
 import {Semigroup} from './Semigroup.js'
 

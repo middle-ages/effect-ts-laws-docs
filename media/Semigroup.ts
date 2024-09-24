@@ -1,5 +1,5 @@
 import {SemigroupTypeLambda} from '@effect/typeclass/Semigroup'
-import {Law} from '../../../law.js'
+import {Law} from '#law'
 import {ConcreteGiven, concreteLaws} from './given.js'
 
 /**

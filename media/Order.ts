@@ -1,3 +1,4 @@
+import {Law} from '#law'
 import {Boolean as BO, Equivalence as EQ} from 'effect'
 import {
   greaterThan,
@@ -7,7 +8,6 @@ import {
   OrderTypeLambda,
 } from 'effect/Order'
 import fc from 'fast-check'
-import {Law} from '../../../law.js'
 import {ConcreteGiven, concreteLaws} from './given.js'
 
 /**
