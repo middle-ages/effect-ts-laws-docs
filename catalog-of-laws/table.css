@@ -32,21 +32,16 @@ article {
     border-top: var(--line-table-high);
     border-bottom: var(--line-table);
     background: var(--color-bg);
-    height: var(--line-height-header) !important;
-    overflow: clip;
     & > *:last-child {
       border-image-width: 0;
     }
     & > * {
       text-align: center;
-      line-height: var(--line-height-header) !important;
+      line-height: var(--line-height-header);
       color: var(--color-header);
       border-image-slice: 0 100% 0 0;
-      border-image-width: calc(var(--font-size) / 4) 4px;
+      border-image-width: calc(var(--font-size) / 4);
       border-image-repeat: stretch;
-      /*
-100% 100% 100% 100%;
-      */
       border-image-source: linear-gradient(to right,
           #0000 0,
           #0000 25%,
@@ -66,7 +61,6 @@ article {
   laws {
     text-wrap: nowrap;
     margin-top: var(--separator-height);
-    z-index: 10;
     & > *:nth-child(n + 2):nth-child(-n + 6) {
       padding-top: var(--vpad-laws);
     }
@@ -79,7 +73,7 @@ article {
     }
     & > *:first-child,
     & > *:nth-child(2) {
-      grid-row: 1/calc(var(--laws) + 1);
+      grid-row: 1/ span 10;
     }
     & > *:first-child {
       position: relative;
@@ -131,7 +125,7 @@ article {
   laws::before {
     --radius: calc(var(--line-height));
     opacity: 8%;
-    grid-row: 1 / span calc(var(--laws));
+    grid-row: 1 / span 10;
     grid-column: 2/-1;
     content: "";
     background: var(--color-law-bg);
