@@ -4,15 +4,15 @@
    * columns: extends, typeclass, law, lhs, center, rhs 
    */
   --font-size: 17px;
-  --line-height: calc(1.6 * var(--font-size));
+  --line-height: calc(1.7 * var(--font-size));
   --line-height-header: 40px;
   --hpad: 12px;
   --vpad: 12px;
-  --vpad-laws: 4px;
+  --vpad-laws: 6px;
   --stroke: 1.25px;
   --font-size-header-factor: 1.5;
   --separator-height-factor: 0.3;
-  --hide-right: 1px;
+  --hide-right: 2px;
   --arrow-width: 8px;
   --arrow-height: 12px;
   /** Computed */
@@ -36,12 +36,12 @@
   --color-title: #567;
   --color-header: #669;
   --color-typeclass: #686261;
-  --color-law: #40444a;
+  --color-law: #484a4f;
   --color-table-line-high: #cce;
   --color-table-line: #bbd;
   --color-op: #88a;
   --color-line: #777;
   --color-outline: #51b;
-  --color-law-bg: #ecebea;
+  --color-law-bg: #edeae8;
   --color-bg: #fff;
 }

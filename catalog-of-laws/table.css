@@ -13,7 +13,7 @@ article {
   top: calc(var(--line-height-header));
   grid-template-columns: repeat(2, min-content) 21rex repeat(3, min-content);
   background:
-    linear-gradient(#ffff calc(var(--line-height)),
+    linear-gradient(#ffff 0,
       #ffff calc(var(--line-height) + var(--vpad)),
       #fff0 calc(var(--line-height) + 4 * var(--vpad))),
     linear-gradient(#0007 0,
@@ -119,7 +119,6 @@ article {
     background: var(--color-law-bg);
     border-top-left-radius: var(--radius);
     border-bottom-left-radius: var(--radius);
-    box-shadow: inset 0.5px 1px 6px 0.4px #181513,
-      inset 1px 2px 9px 2.5px #a7a3a0;
+    box-shadow: inset 1px 1px 8px 2px #120906;
   }
 }

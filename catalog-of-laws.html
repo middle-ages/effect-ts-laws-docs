@@ -38,6 +38,9 @@
     <macro>$\global\def\fn#1{\htmlClass{fn}{#1}}$</macro>
     <macro>$\global\def\imap{\fn{imap}}$</macro>
     <macro>$\global\def\map{\fn{map}}$</macro>
+    <macro>$\global\def\coproduct{\fn{coproduct}}$</macro>
+    <macro>$\global\def\coproductMany{\fn{coproductMany}}$</macro>
+    <macro>$\global\def\coproductAll{\fn{coproductAll}}$</macro>
     <macro>$\global\def\flatMap{\fn{flatMap}}$</macro>
     <macro>$\global\def\contramap{\fn{contramap}}$</macro>
     <macro>$\global\def\of{\fn{of}}$</macro>
@@ -259,6 +262,32 @@
           <d>$\map(ab)$</d>
           <d>$=$</d>
           <d>$\flatMap(\of \∘ ab)$</d>
+        </laws>
+
+        <laws class="laws-2" style="--laws: 2">
+          <d> </d>
+          <e>SemiAlternative</e>
+
+          <d>associativity</d>
+          <d>$(fa_1 ⊕ fa_2) ⊕ fa_3$</d>
+          <d>$=$</d><d>$fa_1 ⊕ (fa_2 ⊕ fa_3)$</d>
+
+          <d>coproductMany associativity</d>
+          <d>$\coproductMany(fa_1, [fa_2, fa_3])$</d>
+          <d>$=$</d><d>$fa_1 ⊕ (fa_2 ⊕ fa_3)$</d>
+        </laws>
+
+        <laws class="laws-3" style="--laws: 3">
+          <d> </d>
+          <e>Alternative</e>
+
+          <d>left identity</d><d>$\empty ⊕ fa$</d> <d>$=$</d><d>$fa$</d>
+
+          <d>right identity</d><d>$fa ⊕ \empty$</d> <d>$=$</d><d>$fa$</d>
+
+          <d>coproductAll zero</d
+          ><d>$\coproductAll\:\!\raisebox{0.1em}{([\,])}$</d> <d>$=$</d
+          ><d>$\empty$</d>
         </laws>
 
         <laws
