@@ -11,7 +11,7 @@ laws {
 article {
   position: relative;
   top: calc(var(--line-height-header));
-  grid-template-columns: repeat(2, min-content) 21rex repeat(3, min-content);
+  grid-template-columns: repeat(2, min-content) 23rex repeat(3, min-content);
   background:
     linear-gradient(#ffff 0,
       #ffff calc(var(--line-height) + var(--vpad)),
@@ -25,10 +25,8 @@ article {
   }
   .header {
     position: sticky;
-    width: 100%;
     top: calc(var(--line-height-header));
-    z-index: 55;
-    grid-row: 1/2;
+    z-index: 40;
     border-top: var(--line-table-high);
     border-bottom: var(--line-table);
     background: var(--color-bg);
@@ -36,9 +34,6 @@ article {
     & > * {
       text-align: center;
       color: var(--color-header);
-    }
-    & > *:last-child {
-      border-image: none;
     }
   }
   laws {
