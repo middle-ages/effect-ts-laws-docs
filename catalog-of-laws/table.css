@@ -16,7 +16,7 @@ article {
     linear-gradient(#ffff 0,
       #ffff calc(var(--line-height) + var(--vpad)),
       #fff0 calc(var(--line-height) + 4 * var(--vpad))),
-    linear-gradient(#0007 0,
+    linear-gradient(#0008 0,
       #0000 calc(3 * var(--line-height)));
   background-attachment: scroll, fixed;
   laws,
