@@ -55,8 +55,6 @@ export const getEquivalence = <A>(
     (seed: number): A => {
       const [result] = fc.sample(arbitrary, {seed, numRuns: 1})
       if (result === undefined) throw new Error('Could not sample.')
-      //      console.log(`sampling seed=${seed.toString()}`)
-      //     console.log({arbitrary, result})
       return result
     }
 
