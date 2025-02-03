@@ -1,0 +1,329 @@
+<!DOCTYPE html><html class="default" lang="en" data-base=".."><head><meta charset="utf-8"/><meta http-equiv="x-ua-compatible" content="IE=edge"/><title>docs/user-guide | effect-ts-laws</title><meta name="description" content="Documentation for effect-ts-laws"/><meta name="viewport" content="width=device-width, initial-scale=1"/><link rel="stylesheet" href="../assets/style.css"/><link rel="stylesheet" href="../assets/highlight.css"/><script defer src="../assets/main.js"></script><script async src="../assets/icons.js" id="tsd-icons-script"></script><script async src="../assets/search.js" id="tsd-search-script"></script><script async src="../assets/navigation.js" id="tsd-nav-script"></script><script async src="../assets/hierarchy.js" id="tsd-hierarchy-script"></script></head><body><script>document.documentElement.dataset.theme = localStorage.getItem("tsd-theme") || "os";document.body.style.display="none";setTimeout(() => app?app.showPage():document.body.style.removeProperty("display"),500)</script><header class="tsd-page-toolbar"><div class="tsd-toolbar-contents container"><div class="table-cell" id="tsd-search"><div class="field"><label for="tsd-search-field" class="tsd-widget tsd-toolbar-icon search no-caption"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="../assets/icons.svg#icon-search"></use></svg></label><input type="text" id="tsd-search-field" aria-label="Search"/></div><div class="field"><div id="tsd-toolbar-links"></div></div><ul class="results"><li class="state loading">Preparing search index...</li><li class="state failure">The search index is not available</li></ul><a href="../index.html" class="title">effect-ts-laws</a></div><div class="table-cell" id="tsd-widgets"><a href="#" class="tsd-widget tsd-toolbar-icon menu no-caption" data-toggle="menu" aria-label="Menu"><svg width="16" height="16" viewBox="0 0 16 16" fill="none"><use href="../assets/icons.svg#icon-menu"></use></svg></a></div></div></header><div class="container container-main"><div class="col-content"><div class="tsd-page-title"><ul class="tsd-breadcrumb"><li><a href="../modules.html">effect-ts-laws</a></li><li><a href="docs_user-guide.html">docs/user-guide</a></li></ul></div><div class="tsd-panel tsd-typography"><a id="user-guide" class="tsd-anchor"></a><h1 class="tsd-anchor-link">User Guide<a href="#user-guide" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h1><p><code>effect-ts-laws</code> is a <em>law testing</em> library. Read on for instructions on usage.
+Most use-cases can skip the <a href="#model">Model</a> section, and go directly from
+<a href="#import">Import</a> to <a href="#usage">Usage</a>.</p>
+<ol>
+<li><a href="#overview">Overview</a>
+<ol>
+<li><a href="#install">Install</a></li>
+<li><a href="#import">Import</a></li>
+</ol>
+</li>
+<li><a href="#model">Model</a>
+<ol>
+<li><a href="#monomorphic">Monomorphic</a></li>
+<li><a href="#extends-relation">Extends Relation</a></li>
+<li><a href="#testing-laws-on-composed-instances">Testing Laws on Composed Instances</a></li>
+<li><a href="#other-typeclass--typeclass-relations">Other Typeclass ↔ Typeclass Relations</a></li>
+<li><a href="#deduplication">Deduplication</a></li>
+<li><a href="#check-vs-test">Check vs. Test</a></li>
+</ol>
+</li>
+<li><a href="#usage">Usage</a>
+<ol>
+<li><a href="#testing-laws">Testing Laws</a>
+<ol>
+<li><a href="#typeclass-laws-for-concrete-types">Typeclass Laws For Concrete Types</a></li>
+<li><a href="#typeclass-laws-for-parameterized-types">Typeclass Laws For Parameterized Types</a></li>
+<li><a href="#typeclass-law-testing-api">Typeclass Law Testing API</a></li>
+<li><a href="#contravariant-typeclass-laws">Contravariant Typeclass Laws</a></li>
+<li><a href="#schema-laws">Schema Laws</a></li>
+<li><a href="#writing-new-laws">Writing New Laws</a></li>
+<li><a href="#configure-fast-check-runtime">Configure fast-check Runtime</a></li>
+</ol>
+</li>
+<li><a href="#checking-laws">Checking Laws</a></li>
+<li><a href="#arbitraries-for-effect-ts-datatypes-and-functions-of-higher-kinded-types">Arbitraries for effect-ts Datatypes and Functions of Higher-Kinded Types</a></li>
+</ol>
+</li>
+</ol>
+<a id="overview" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Overview<a href="#overview" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="install" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Install<a href="#install" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><p>To install, replace <code>pnpm</code> with your package manager:</p>
+<pre><code class="sh"><span class="hl-9"># Peer dependencies:</span><br/><span class="hl-4">pnpm</span><span class="hl-1"> </span><span class="hl-3">i</span><span class="hl-1"> </span><span class="hl-3">effect-ts</span><span class="hl-1"> </span><span class="hl-3">@effect/typeclass</span><br/><br/><span class="hl-9"># Peer dev dependencies</span><br/><span class="hl-4">pnpm</span><span class="hl-1"> </span><span class="hl-3">i</span><span class="hl-1"> </span><span class="hl-5">-D</span><span class="hl-1"> </span><span class="hl-3">vitest</span><span class="hl-1"> </span><span class="hl-3">fast-check</span><span class="hl-1"> </span><span class="hl-3">@fast-check/vitest</span><br/><br/><span class="hl-9"># Install effect-ts-laws</span><br/><span class="hl-4">pnpm</span><span class="hl-1"> </span><span class="hl-3">i</span><span class="hl-1"> </span><span class="hl-5">-D</span><span class="hl-1"> </span><span class="hl-3">effect-ts-laws</span>
+</code><button type="button">Copy</button></pre>
+
+<a id="import" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Import<a href="#import" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><pre><code class="ts"><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">LawSet</span><span class="hl-1">, </span><span class="hl-2">buildTypeclassLaws</span><span class="hl-1">, ... } </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect-ts-laws&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">testLawSets</span><span class="hl-1">, ...} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect-ts-laws/vitest&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">Endo</span><span class="hl-1">, </span><span class="hl-2">Dual</span><span class="hl-1">, ...} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect-ts-laws/typeclass&#39;</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Every symbol can be imported from <code>effect-ts-laws</code> or
+<code>effect-ts-laws/typeclass</code>, except functions related to law <em>testing</em> with
+vitest. These must be imported from <code>effect-ts-laws/vitest</code>.</p>
+<p><code>effect-ts-laws/typeclass</code> has some complementary code for <a href="https://github.com/Effect-TS/effect/tree/main/packages/typeclass">@effect/typeclass</a>, that may be useful for your law tests, but most of the functionality you will want can be imported from two entry points:</p>
+<ol>
+<li><code>effect-ts-laws</code> - Everything <em>not</em> related to <a href="https://vitest.dev">vitest</a>.</li>
+<li><code>effect-ts-laws/vitest</code> - Vitest test runners.</li>
+</ol>
+<p>Here is how you would <em>check</em> a law, in this case a tautology, and then <em>test</em>
+it:</p>
+<pre><code class="ts"><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">Law</span><span class="hl-1">, </span><span class="hl-2">checkLaw</span><span class="hl-1">, </span><span class="hl-2">testLaw</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect-ts-laws&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">testLaw</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect-ts-laws/vitest&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">describe</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;vitest&#39;</span><br/><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-7">law</span><span class="hl-1">: </span><span class="hl-6">Law</span><span class="hl-1">&lt;[</span><span class="hl-6">boolean</span><span class="hl-1">]&gt; = </span><span class="hl-4">Law</span><span class="hl-1">(</span><br/><span class="hl-1">  </span><span class="hl-3">&#39;booleans are true or false&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-3">&#39;∀a in boolean: a || !a&#39;</span><span class="hl-1">, </span><br/><span class="hl-1">  </span><span class="hl-2">fc</span><span class="hl-1">.</span><span class="hl-4">boolean</span><span class="hl-1">(), </span><br/><span class="hl-1">)(</span><span class="hl-2">a</span><span class="hl-1"> </span><span class="hl-5">=&gt;</span><span class="hl-1"> </span><span class="hl-2">a</span><span class="hl-1"> || !</span><span class="hl-2">a</span><span class="hl-1">)</span><br/><br/><span class="hl-9">// Checking</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-7">maybeError</span><span class="hl-1">: </span><span class="hl-6">Option</span><span class="hl-1">&lt;</span><span class="hl-6">string</span><span class="hl-1">&gt; = </span><span class="hl-4">checkLaw</span><span class="hl-1">(</span><span class="hl-2">law</span><span class="hl-1">)</span><br/><br/><span class="hl-9">// Testing</span><br/><span class="hl-4">describe</span><span class="hl-1">(</span><span class="hl-3">&#39;law tests&#39;</span><span class="hl-1">, ()  </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-4">testLaw</span><span class="hl-1">(</span><span class="hl-2">law</span><span class="hl-1">)</span><br/><span class="hl-1">})</span>
+</code><button type="button">Copy</button></pre>
+
+<p><a href="https://middle-ages.github.io/effect-ts-laws-docs/modules.html">The API module index</a>.
+lists all exported symbols by module.</p>
+<a id="model" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Model<a href="#model" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><p>The only abstractions are <code>Law</code> and <code>LawSet</code>. The rest of the library
+consists of:</p>
+<ol>
+<li>Functions to build, relate, check, and test laws and sets of laws.</li>
+<li>Arbitraries, utilities for <a href="#monomorphic">monomorphic</a> testing, and other
+bits of law testing infrastructure.</li>
+<li>Lots of tests: self-tests, tests of <code>effect-ts</code>, and some tests for <code>fast-check</code>.</li>
+</ol>
+<p>A <a href="https://middle-ages.github.io/effect-ts-laws-docs/interfaces/law.Law.html">Law</a> is a paper-thin wrapper of the <code>fast-check</code>
+<em>property</em>, and a <a href="https://middle-ages.github.io/effect-ts-laws-docs/interfaces/law.LawSet.html">LawSet</a>
+is a recursive data structure composed of a set of laws and their dependencies
+in the form of a list of LawSets. You can read about the
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/interfaces/law.Law.html">Law here</a>,
+and the
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/interfaces/law.LawSet.html">LawSet here</a>.</p>
+<p>The typeclass and schema laws are implemented as functions that build a
+<code>LawSet</code> from a given instance/schema under test, together with a few
+arbitraries/equivalences required by the specific <code>LawSet</code>.</p>
+<p>For example the <a href="https://github.com/middle-ages/effect-ts-laws/blob/main/src/laws/typeclass/concrete/Equivalence.ts">Equivalence laws</a>
+are implemented as a function called <code>equivalenceLaws</code> which takes
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/interfaces/laws.ConcreteGiven.html">options of type ConcreteGiven</a>
+and returns a <code>LawSet</code> with the laws ready to be tested on the given instance
+under test, taken from the key <code>F</code> of the given options.</p>
+<p>You create a <code>Law</code> using a constructor called
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/functions/law.Law-1.html">Law</a>.</p>
+<p>The <code>LawSet</code> constructor is also named after the type, but two more
+constructors serve as syntax sugar for some common situations:</p>
+<ol>
+<li><a href="https://middle-ages.github.io/effect-ts-laws-docs/functions/law.LawSet-1.html">LawSet</a>
+will build a <code>LawSet</code> from a list of required law sets, a name, and a list of laws.</li>
+<li><a href="https://middle-ages.github.io/effect-ts-laws-docs/functions/law.lawTests.html">lawSet</a>
+is the same except it includes only a name and <em>laws</em>, and is not related to any
+other <code>LawSet</code>.</li>
+<li><a href="https://middle-ages.github.io/effect-ts-laws-docs/functions/law.lawSetTests.html">lawSetTests</a>
+is also the same as the <code>LawSet</code> constructor except it takes only a list of <code>LawSet</code>
+to run with no laws, and is anonymous. Sets of laws with no name are merged with their
+sibling law tests and do not appear as a discrete named <code>describe</code> block in
+vitest results.</li>
+</ol>
+<p>A few combinators are exported for building and filtering LawSets, for example
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/functions/law.addLaws.html">addLaws</a>.
+Filtering can be useful, for example, if you need to remove a Law from LawSet, because
+it is problematic for some datatype.</p>
+<a id="monomorphic" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Monomorphic<a href="#monomorphic" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><p>A law like
+<a href="https://github.com/middle-ages/effect-ts-laws/blob/main/src/laws/typeclass/parameterized/Monad.ts#L41">Monad.associativity</a>,
+is defined in such a way that every test can be run vs. <em>three</em> distinct
+<em>underlying</em> types, given by the type parameters <code>A</code>, <code>B</code>, and <code>C</code>. The
+<em>underlying</em> types are the type parameters of typeclasses for parameterized
+types. For example, the underlying type of <code>Option&lt;number&gt;</code> is <code>number</code>.</p>
+<p>You can test the laws in this manner using functions like
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/functions/vitest.testTypeclassLaws.html">testParameterizedTypeclassLaws</a>
+if there are fault models, I.e.: ways in which your code can break, that require
+this type of coverage.</p>
+<p>However seeing as this is highly unlikely, adds considerable complexity to
+the API, and imitating the <em>ancestors</em> of this library from the Scala
+and Haskell languages, the high-level typeclass law testing interface is
+monomorphic, I.e.: <code>A</code>=<code>B</code>=<code>C</code>.</p>
+<p>The single type we used for typeclass testing is <code>readonly number[]</code>. Thus when
+testing the <code>Option</code> datatype, for example, the actual type used in the tests
+will be <code>Option&lt;Mono&gt; ≡ Option&lt;readonly number[]&gt;</code>.</p>
+<p>The
+<a href="https://github.com/middle-ages/effect-ts-laws/blob/main/src/laws/typeclass/monomorphic/helpers.ts">monomorphic</a>
+module exports can be useful when working with this type.</p>
+<a id="extends-relation" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Extends Relation<a href="#extends-relation" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><p>If you map the <code>effect-ts</code> typeclass <em>extends</em> relation, you will see they form
+a directed acyclic graph. You can find a diagram of this graph
+<a href="https://github.com/Effect-TS/effect/blob/main/packages/typeclass/README.md#concrete-types">below the target of this link</a>.</p>
+<p><code>effect-ts-laws</code> typeclass laws form a parallel graph. If typeclass <code>A</code> <em>extends</em>
+typeclass <code>B</code>, then the laws of typeclass <code>A</code> require that the laws of typeclass
+<code>B</code> pass as well. For example, running an instance through the <code>Covariant</code> laws
+will also run it through the <code>Invariant</code> laws.</p>
+<a id="testing-laws-on-composed-instances" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Testing Laws on Composed Instances<a href="#testing-laws-on-composed-instances" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><p>Coverage for some fault models requires testing laws not just on the instance
+under test, but also on the instance when <em>composed</em> with another well-tested
+instance.</p>
+<p>For this reason, the typeclasses that can be <em>composed</em> (<em>Applicative</em>,
+<em>Covariant</em>, <em>Invariant</em>, <em>Traversable</em>, and <em>Foldable</em>), besides their
+non-composed tests, are composed with an instance of the <code>Option</code> datatype and
+run through the typeclass law tests yet again.</p>
+<a id="other-typeclass-↔-typeclass-relations" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Other Typeclass ↔ Typeclass Relations<a href="#other-typeclass-↔-typeclass-relations" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><p>Besides extension and composition, there are other relations between typeclasses
+that need covering. These relations between <em>typeclasses</em> are modelled as
+relations between their <em>law tests</em>.</p>
+<p>For example the type of the
+<a href="https://github.com/Effect-TS/effect/blob/main/packages/typeclass/src/Applicative.ts#L28">Applicative.getMonoid</a>
+function is:</p>
+<pre><code class="ts"><span class="hl-1"> &lt;</span><span class="hl-7">F</span><span class="hl-1"> </span><span class="hl-2">extends</span><span class="hl-1"> </span><span class="hl-2">TypeLambda</span><span class="hl-1">&gt;(</span><br/><span class="hl-1">   </span><span class="hl-7">F</span><span class="hl-1">: </span><span class="hl-2">Applicative</span><span class="hl-1">&lt;</span><span class="hl-7">F</span><span class="hl-1">&gt;</span><br/><span class="hl-1"> ) </span><span class="hl-5">=&gt;</span><span class="hl-1"> &lt;</span><span class="hl-6">A</span><span class="hl-1">, </span><span class="hl-6">R</span><span class="hl-1">, </span><span class="hl-6">O</span><span class="hl-1">, </span><span class="hl-6">E</span><span class="hl-1">&gt;(</span><span class="hl-2">M</span><span class="hl-1">: </span><span class="hl-6">Monoid</span><span class="hl-1">&lt;</span><span class="hl-6">A</span><span class="hl-1">&gt;): </span><span class="hl-6">Monoid</span><span class="hl-1">&lt;</span><span class="hl-6">Kind</span><span class="hl-1">&lt;</span><span class="hl-6">F</span><span class="hl-1">, </span><span class="hl-6">R</span><span class="hl-1">, </span><span class="hl-6">O</span><span class="hl-1">, </span><span class="hl-6">E</span><span class="hl-1">, </span><span class="hl-6">A</span><span class="hl-1">&gt;&gt;</span>
+</code><button type="button">Copy</button></pre>
+
+<p><code>getMonoid</code> gives you a Monoid for your datatype from a Monoid of your
+underlying type. There are several fault models to cover here. Bugs
+in the implementation of the datatype, for example, could lead to
+a broken Monoid returned.</p>
+<p>To cover this type of relation, the
+<a href="https://github.com/middle-ages/effect-ts-laws/blob/main/src/laws/typeclass/parameterized/Applicative.ts#L34">Applicative typeclass laws</a>
+will build a Monoid using <code>Applicative.getMonoid</code> and run it through the
+<a href="https://github.com/middle-ages/effect-ts-laws/blob/main/src/laws/typeclass/concrete/Monoid.ts">Monoid typeclass laws</a>.</p>
+<p>In this example, the Monoid  laws are only run if a Monoid instance for the
+underlying datatype has been found. Because the typeclass law tests are
+<a href="#monomorphic">monomorphic</a> and our underlying type is <code>readonly number[]</code>, we
+always have a Monoid instance for the underlying type.</p>
+<p>The Applicative laws are also related to the <a href="https://github.com/middle-ages/effect-ts-laws/blob/main/src/laws/typeclass/parameterized/Monad.ts">Monad laws</a>.
+If given an instance of
+<a href="https://github.com/Effect-TS/effect/blob/main/packages/typeclass/src/FlatMap.ts">FlatMap</a>
+for the datatype, an extra law will be tested: <code>flatMap consistency</code>.</p>
+<p>There are many such relations, check the specific
+<a href="https://github.com/middle-ages/effect-ts-laws/blob/main/src/laws/typeclass">laws of a typeclass</a>
+to see what laws are included and under what conditions.</p>
+<a id="deduplication" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Deduplication<a href="#deduplication" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><p>With typeclass laws requiring their dependencies pass, we could end up with
+a single law being tested more than once on the same instance, after having
+gotten there by different paths through the dependency graph.</p>
+<p>For this reason laws are deduplicated before being run, so that only the minimal
+required set of laws is run.</p>
+<a id="check-vs-test" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Check vs. Test<a href="#check-vs-test" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><p><em>Checking</em> a law means running it inside a pure function that will return a
+possibly empty list of errors, with the empty list indicating the law has
+been satisfied.</p>
+<p><em>Testing</em> a law is the same thing, except run inside a <em>vitest</em> test,
+errors are reported as assert failure, and when the law is satisfied the test
+will pass.</p>
+<p>The separation lets us <em>check</em> laws <em>outside</em> of a vitest test and with no
+vitest dependency.</p>
+<p><a href="../media/demo.ts">Look here</a> for a demo of a Node.js script that <em>checks</em> the Effect Array datatype without involving Vitest.</p>
+<a id="usage" class="tsd-anchor"></a><h2 class="tsd-anchor-link">Usage<a href="#usage" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h2><a id="testing-laws" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Testing Laws<a href="#testing-laws" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><p>To create a law test you would:</p>
+<ol>
+<li>Create a new <code>vitest</code> test file.</li>
+<li>Build the required options. All builders of typeclass laws for example,
+require <code>getEquivalence</code> for a higher-kinded datatype.</li>
+<li>Write code to build a
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/interfaces/law.LawSet.html">LawSet</a>
+from these requirements.</li>
+<li>Test the laws via <code>checkLaws</code> or <code>testLaws</code>.</li>
+</ol>
+<p>The specifics depend on the set of laws you are testing.</p>
+<a id="typeclass-laws-for-concrete-types" class="tsd-anchor"></a><h4 class="tsd-anchor-link">Typeclass Laws For Concrete Types<a href="#typeclass-laws-for-concrete-types" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>To build the <code>Equivalence</code>, <code>Order</code>, <code>Bounded</code>, <code>Semigroup</code> and <code>Monoid</code>
+typeclass laws, all you need is:</p>
+<ol>
+<li>The instance under test.</li>
+<li>Equivalence for the datatype under test.</li>
+<li>An Arbitrary for the datatype under test.</li>
+</ol>
+<p>For example, to test the semigroup laws work for integer addition:</p>
+<pre><code class="ts"><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">Semigroup</span><span class="hl-1"> </span><span class="hl-0">as</span><span class="hl-1"> </span><span class="hl-2">SE</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@effect/typeclass&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">Number</span><span class="hl-1"> </span><span class="hl-0">as</span><span class="hl-1"> </span><span class="hl-2">NU</span><span class="hl-1">, </span><span class="hl-2">pipe</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">semigroupLaws</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect-ts-laws&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">testLaws</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect-ts-laws/vitest&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> </span><span class="hl-2">fc</span><span class="hl-1"> </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;fast-check&#39;</span><br/><br/><span class="hl-4">describe</span><span class="hl-1">(</span><span class="hl-3">&#39;Integers form a semigroup under +&#39;</span><span class="hl-1">, () </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-7">instance</span><span class="hl-1">: </span><span class="hl-6">SE</span><span class="hl-1">.</span><span class="hl-6">Semigroup</span><span class="hl-1">&lt;</span><span class="hl-6">number</span><span class="hl-1">&gt; = {</span><br/><span class="hl-1">    </span><span class="hl-2">combine:</span><span class="hl-1"> </span><span class="hl-7">NU</span><span class="hl-1">.</span><span class="hl-2">sum</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-4">combineMany</span><span class="hl-2">:</span><span class="hl-1"> (</span><span class="hl-2">head</span><span class="hl-1">, </span><span class="hl-2">rest</span><span class="hl-1">) </span><span class="hl-5">=&gt;</span><span class="hl-1"> </span><span class="hl-7">NU</span><span class="hl-1">.</span><span class="hl-4">sumAll</span><span class="hl-1">([</span><span class="hl-2">head</span><span class="hl-1">, ...</span><span class="hl-2">rest</span><span class="hl-1">]),</span><br/><span class="hl-1">  }</span><br/><br/><span class="hl-1">  </span><span class="hl-4">pipe</span><span class="hl-1">(</span><br/><span class="hl-1">    {</span><span class="hl-2">F:</span><span class="hl-1"> </span><span class="hl-2">instance</span><span class="hl-1">, </span><span class="hl-2">equalsA:</span><span class="hl-1"> </span><span class="hl-7">NU</span><span class="hl-1">.</span><span class="hl-2">Equivalence</span><span class="hl-1">, </span><span class="hl-2">a:</span><span class="hl-1"> </span><span class="hl-2">fc</span><span class="hl-1">.</span><span class="hl-4">nat</span><span class="hl-1">()},</span><br/><span class="hl-1">    </span><span class="hl-2">semigroupLaws</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">testLaws</span><span class="hl-1">,</span><br/><span class="hl-1">  )</span><br/><span class="hl-1">})</span>
+</code><button type="button">Copy</button></pre>
+
+<p>There are <em>two</em> laws for
+<a href="https://github.com/middle-ages/effect-ts-laws/blob/main/src/laws/typeclass/concrete/Semigroup.ts">Semigroup</a>,
+and they are organized in named set of laws called <code>Semigroup</code>. Vitest will report the following results
+when running this test:</p>
+<img style="min-width:340px;max-width:340px" src="../media/numeric-addition-semigroup-verbose-off.png" alt="vitest results for integer addition semigroup laws verbose OFF">
+<p>If you replace the call to <a href="https://middle-ages.github.io/effect-ts-laws-docs/functions/vitest.testLaws.html">testLaws</a>
+with a call to <a href="https://middle-ages.github.io/effect-ts-laws-docs/functions/vitest.verboseLaws.html">verboseLaws</a>,
+a variant of <code>testLaws</code> that automatically turns on the fast-check runtime <code>verbose</code>
+parameter, you will get the same results but with the <em>notes</em> shown:</p>
+<img style="min-width:750px;max-width:750px" src="../media/numeric-addition-semigroup-verbose-on.png" alt="vitest results for integer addition semigroup laws verbose ON">
+<a id="typeclass-laws-for-parameterized-types" class="tsd-anchor"></a><h4 class="tsd-anchor-link">Typeclass Laws For Parameterized Types<a href="#typeclass-laws-for-parameterized-types" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>If your datatype is parameterized, as is for example the <code>Option</code> datatype, to build
+laws you must provide:</p>
+<ol>
+<li>The instance under test.</li>
+<li>A function that will
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/interfaces/law.LiftEquivalence.html">lift equivalences</a>
+into your type.</li>
+<li>The same but for
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/interfaces/arbitrary.LiftArbitrary.html">arbitraries</a>.</li>
+</ol>
+<p>For example the test the Covariant typeclass laws on the <code>Option</code> datatype:</p>
+<pre><code class="ts"><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">covariantLaws</span><span class="hl-1">, </span><span class="hl-2">option</span><span class="hl-1">, </span><span class="hl-2">GivenConcerns</span><span class="hl-1">, </span><span class="hl-2">Mono</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect-ts-laws&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">testLaws</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect-ts-laws/vitest&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">pipe</span><span class="hl-1">, </span><span class="hl-2">Option</span><span class="hl-1"> </span><span class="hl-0">as</span><span class="hl-1"> </span><span class="hl-2">OP</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">OptionTypeLambda</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect/Option&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">Covariant</span><span class="hl-1"> </span><span class="hl-0">as</span><span class="hl-1"> </span><span class="hl-2">optionCovariant</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@effect/typeclass/data/Option&#39;</span><br/><br/><span class="hl-4">describe</span><span class="hl-1">(</span><span class="hl-3">&#39;Option is Covariant&#39;</span><span class="hl-1">, () </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-7">given</span><span class="hl-1">: </span><span class="hl-6">GivenConcerns</span><span class="hl-1">&lt;</span><span class="hl-6">OptionTypeLambda</span><span class="hl-1">, </span><span class="hl-6">Mono</span><span class="hl-1">&gt; =</span><br/><span class="hl-1">    </span><span class="hl-4">unfoldMonomorphicGiven</span><span class="hl-1">&lt;</span><span class="hl-6">OptionTypeLambda</span><span class="hl-1">&gt;({</span><br/><span class="hl-1">      </span><span class="hl-2">getEquivalence:</span><span class="hl-1"> </span><span class="hl-7">OP</span><span class="hl-1">.</span><span class="hl-2">getEquivalence</span><span class="hl-1">,</span><br/><span class="hl-1">      </span><span class="hl-2">getArbitrary:</span><span class="hl-1"> </span><span class="hl-2">option</span><span class="hl-1">,</span><br/><span class="hl-1">    })</span><br/><br/><span class="hl-1">  </span><span class="hl-4">pipe</span><span class="hl-1">(</span><br/><span class="hl-1">    {</span><span class="hl-2">F:</span><span class="hl-1"> </span><span class="hl-2">optionCovariant</span><span class="hl-1">, ...</span><span class="hl-2">given</span><span class="hl-1">},</span><br/><span class="hl-1">    </span><span class="hl-2">covariantLaws</span><span class="hl-1">&lt;</span><span class="hl-2">OptionTypeLambda</span><span class="hl-1">, </span><span class="hl-2">Mono</span><span class="hl-1">&gt;,</span><br/><span class="hl-1">    </span><span class="hl-2">testLaws</span><span class="hl-1">,</span><br/><span class="hl-1">  )</span><br/><span class="hl-1">})</span><br/>
+</code><button type="button">Copy</button></pre>
+
+<p>Vitest will show the test results so:</p>
+<img style="min-width:340px;max-width:340px" src="../media/option-is-covariant.png" alt="vitest results for option is covariant">
+<a id="typeclass-law-testing-api" class="tsd-anchor"></a><h4 class="tsd-anchor-link">Typeclass Law Testing API<a href="#typeclass-law-testing-api" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>Because this distinction between typeclasses for <em>concrete</em> vs. <em>parameterized</em> types does not help when defining
+law tests as described above, and because you usually have several instances of
+several typeclasses for a single datatype, you may prefer to use the high-level
+unified API for testing typeclass laws that lets you test several instances of a
+single datatype in single function call. This is how the <code>effect-ts</code>
+<a href="https://github.com/middle-ages/effect-ts-laws/tree/main/tests/effect-ts">datatype tests</a>
+are defined.</p>
+<p><a href="https://middle-ages.github.io/effect-ts-laws-docs/functions/vitest.testTypeclassLaws.html">testTypeclassLaws</a>
+is the high-level interface for testing typeclass laws.</p>
+<p>You provide the instances under test keyed by their typeclass, a <em>getArbitrary</em>
+and a <em>getEquivalence</em> for the datatype under test, and it will unfold these two
+humble functions into the typeclass law options, build the correct typeclass
+laws, and then test them.</p>
+<p>Here for example we run some <em>concrete</em> and <em>parameterized</em> typeclass laws on
+the <code>Option</code> datatype. Note how instances under test are keyed by their
+typeclass name.</p>
+<pre><code class="ts"><span class="hl-0">import</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-2">getOptionalMonoid</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">Monad</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">Traversable</span><span class="hl-1">,</span><br/><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;@effect/typeclass/data/Option&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">Option</span><span class="hl-1"> </span><span class="hl-0">as</span><span class="hl-1"> </span><span class="hl-2">OP</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">monoEquivalence</span><span class="hl-1">, </span><span class="hl-2">monoOrder</span><span class="hl-1">, </span><span class="hl-2">monoSemigroup</span><span class="hl-1">, </span><span class="hl-2">option</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect-ts-laws&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">testTypeclassLaws</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect-ts-laws/vitest&#39;</span><br/><span class="hl-0">import</span><span class="hl-1"> {</span><span class="hl-2">OptionTypeLambda</span><span class="hl-1">} </span><span class="hl-0">from</span><span class="hl-1"> </span><span class="hl-3">&#39;effect/Option&#39;</span><br/><br/><span class="hl-4">describe</span><span class="hl-1">(</span><span class="hl-3">&#39;option&#39;</span><span class="hl-1">, () </span><span class="hl-5">=&gt;</span><span class="hl-1"> {</span><br/><span class="hl-1">  </span><span class="hl-4">testTypeclassLaws</span><span class="hl-1">&lt;</span><span class="hl-6">OptionTypeLambda</span><span class="hl-1">&gt;({</span><br/><span class="hl-1">    </span><span class="hl-9">// The required options for building typeclass laws.</span><br/><span class="hl-1">    </span><span class="hl-2">getEquivalence:</span><span class="hl-1"> </span><span class="hl-7">OP</span><span class="hl-1">.</span><span class="hl-2">getEquivalence</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">getArbitrary:</span><span class="hl-1"> </span><span class="hl-2">option</span><span class="hl-1">,</span><br/><span class="hl-1">  })({</span><br/><span class="hl-1">    </span><span class="hl-9">// Struct of of instances under test, key is typeclass name. </span><br/><span class="hl-1">    </span><span class="hl-2">Equivalence:</span><span class="hl-1"> </span><span class="hl-7">OP</span><span class="hl-1">.</span><span class="hl-4">getEquivalence</span><span class="hl-1">(</span><span class="hl-2">monoEquivalence</span><span class="hl-1">),</span><br/><span class="hl-1">    </span><span class="hl-2">Order:</span><span class="hl-1"> </span><span class="hl-7">OP</span><span class="hl-1">.</span><span class="hl-4">getOrder</span><span class="hl-1">(</span><span class="hl-2">monoOrder</span><span class="hl-1">),</span><br/><span class="hl-1">    </span><span class="hl-2">Monoid:</span><span class="hl-1"> </span><span class="hl-4">getOptionalMonoid</span><span class="hl-1">(</span><span class="hl-2">monoSemigroup</span><span class="hl-1">),</span><br/><span class="hl-1">    </span><span class="hl-2">Monad</span><span class="hl-1">,</span><br/><span class="hl-1">    </span><span class="hl-2">Traversable</span><span class="hl-1">,</span><br/><span class="hl-1">  })</span><br/><span class="hl-1">})</span>
+</code><button type="button">Copy</button></pre>
+
+<p>Every instance of the <em>five</em> we provided gets its own typeclass laws tests.
+Vitest will show <em>five</em> typeclass law sets tested, one per instance.</p>
+<p>Some typeclass laws <em>extend</em> others, so for example the <code>Covariant</code> typeclass
+laws are tested as part of the <code>Monad</code> typeclass law tests. Some typeclasses
+are <em>composable</em>, so for example the <code>Covariant</code> typeclass law tests are run
+once by themselves, and once again when composed inside of an <code>Option</code>:</p>
+<img style="min-width:700;max-width:700px" src="../media/option-typeclass-laws.png" alt="vitest results for integer addition semigroup laws verbose OFF">
+<a id="contravariant-typeclass-laws" class="tsd-anchor"></a><h4 class="tsd-anchor-link">Contravariant Typeclass Laws<a href="#contravariant-typeclass-laws" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>🚧</p>
+<a id="schema-laws" class="tsd-anchor"></a><h4 class="tsd-anchor-link">Schema Laws<a href="#schema-laws" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>🚧</p>
+<a id="writing-new-laws" class="tsd-anchor"></a><h4 class="tsd-anchor-link">Writing New Laws<a href="#writing-new-laws" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>🚧</p>
+<a id="configure-fast-check-runtime" class="tsd-anchor"></a><h4 class="tsd-anchor-link">Configure fast-check Runtime<a href="#configure-fast-check-runtime" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h4><p>You may want to pass parameters to <code>fast-check</code> because:</p>
+<ol>
+<li>A test is too slow, and you wish to reduce <code>numRuns</code>, or you wish to increase
+<code>numRuns</code> to increase coverage</li>
+<li>You have a <code>seed</code> and <code>path</code> from a failed run and would   like to debug this
+counterexample directly.</li>
+<li>You want to use <code>fast-check</code> reporting.</li>
+</ol>
+<p>These <code>fast-check</code> parameters, <a href="https://fast-check.dev/api-reference/interfaces/Parameters.html">documented
+here</a>, can be
+configured for law testing at three levels, listed by priority from highest to
+lowest:</p>
+<ol>
+<li><strong>Per check or per test</strong> by providing the optional <code>parameters</code> argument to
+the <code>check/test</code> functions. This will override the global and <code>Law</code>
+configuration.</li>
+<li><strong>Per law</strong> values of the type
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/interfaces/law.Law.html">Law</a>
+carry an optional field <code>parameters</code>. The constructor
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/functions/law.Law-1.html">Law</a>
+will take a <code>parameters</code> argument as an optional argument following the
+<em>predicate</em>. Useful for example, to reduce <code>numRuns</code> in the definition of a law
+that is slow to test. This will override global configuration.</li>
+<li><strong>Global test setup</strong> in a <code>vitest.setup.ts</code> file, as
+<a href="https://fast-check.dev/docs/configuration/global-settings/#vitest">described here</a>.</li>
+</ol>
+<p>Parameters configured at the <code>Law</code> lever override global configuration, and parameters
+provided at the top level calls to check/test functions override both.</p>
+<p><code>check*</code> functions, like <code>checkLaws</code>, will ignore the vitest global
+configuration as it is active only at test-time.</p>
+<p>The <a href="https://github.com/middle-ages/effect-ts-laws/blob/main/tests/laws/schema.spec.ts">schema laws self-test</a>
+<em>bad decoder</em> test, for example, creates a counterexample in a single run using
+the <strong>Per check or per test</strong> mechanism described above and a seed + path
+recorded from the results of some other test:</p>
+<pre><code class="ts"><span class="hl-9">// We expect the counterexample to fail</span><br/><span class="hl-5">const</span><span class="hl-1"> </span><span class="hl-7">errors</span><span class="hl-1"> = </span><span class="hl-4">checkLaws</span><span class="hl-1">(</span><span class="hl-4">schemaLaws</span><span class="hl-1">(</span><span class="hl-2">Person</span><span class="hl-1">), {</span><br/><span class="hl-1">  </span><span class="hl-2">numRuns:</span><span class="hl-1"> </span><span class="hl-8">1</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">seed:</span><span class="hl-1"> -</span><span class="hl-8">1512491049</span><span class="hl-1">,</span><br/><span class="hl-1">  </span><span class="hl-2">path:</span><span class="hl-1"> </span><span class="hl-3">&#39;38&#39;</span><span class="hl-1">,</span><br/><span class="hl-1">})</span>
+</code><button type="button">Copy</button></pre>
+
+<a id="checking-laws" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Checking Laws<a href="#checking-laws" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><p><em>Checking</em> laws is exactly like <em>testing</em> laws, except your code does not have
+to depend on the testing library <code>vitest</code>. Useful when you want to use this
+library from code that is not test code, for example <em>monitoring</em> code.</p>
+<p>You can check laws using the functions
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/functions/law.checkLaws.html">checkLaws</a>, or
+<a href="https://middle-ages.github.io/effect-ts-laws-docs/functions/law.checkLawSets.html">checkLawSets</a>,
+imported from <code>effect-ts-laws</code>. These functions return a possibly empty list of
+string errors. If the list is empty, then the laws are satisfied, or more
+accurately, we failed in finding a counterexample.</p>
+<p><a href="https://middle-ages.github.io/effect-ts-laws-docs/functions/law.checkLaw.html">checkLaw</a>
+will check a single law and return an option of a string that will be <code>none</code> if
+the law is satisfied, or <code>some</code> error message otherwise.</p>
+<p><a href="https://middle-ages.github.io/effect-ts-laws-docs/functions/law.asAssert.html">asAssert</a>
+is a lower level interface that returns the law in the form of a <code>fast-check</code> property
+wrapped in a <code>fast-check</code> assert for you to do with as you please.</p>
+<p>Note importing <code>effect-ts-laws/vitest</code> behaves just like importing <code>vitest</code>, in
+the sense that code being run from <em>outside</em> test code will immediately croak
+complaining that:</p>
+<blockquote>
+<p><code style="background:#a00;color:#fff">Vitest failed to access its internal state.</code>.</p>
+</blockquote>
+<a id="arbitraries-for-effect-ts-datatypes-and-functions-of-higher-kinded-types" class="tsd-anchor"></a><h3 class="tsd-anchor-link">Arbitraries for effect-ts Datatypes and Functions of Higher-Kinded Types<a href="#arbitraries-for-effect-ts-datatypes-and-functions-of-higher-kinded-types" aria-label="Permalink" class="tsd-anchor-icon"><svg viewBox="0 0 24 24"><use href="../assets/icons.svg#icon-anchor"></use></svg></a></h3><p>You can find out more about the <code>arbitrary</code>
+<a href="https://github.com/middle-ages/effect-ts-laws/blob/main/src/arbitrary/README.md">module here</a>.
+You will find there:</p>
+<ol>
+<li>Arbitraries for some basic <code>effect-ts</code> datatypes like <code>Option</code> and <code>Either</code>.</li>
+<li>Arbitraries for some basic <code>effect-ts</code> temporal datatypes like <code>Duration</code> and
+<code>OffsetTimezone</code>.</li>
+<li>Arbitraries of the function types required for law testing typeclasses like
+<a href="https://github.com/middle-ages/effect-ts-laws/blob/main/src/laws/typeclass/parameterized/Applicative.ts">Applicative</a>,
+for example an arbitrary for functions of the type
+<code>(a: A) =&gt; F&lt;B, Out1, Out2, In1&gt;</code>.</li>
+<li><code>Monad</code> and <code>Equivalence</code> (based on sampling) instances for the <code>fast-check</code>
+<em>Arbitrary</em> type.</li>
+</ol>
+</div></div><div class="col-sidebar"><div class="page-menu"><div class="tsd-navigation settings"><details class="tsd-accordion"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>Settings</h3></summary><div class="tsd-accordion-details"><div class="tsd-filter-visibility"><span class="settings-label">Member Visibility</span><ul id="tsd-filter-options"><li class="tsd-filter-item"><label class="tsd-filter-input"><input type="checkbox" id="tsd-filter-internal" name="internal"/><svg width="32" height="32" viewBox="0 0 32 32" aria-hidden="true"><rect class="tsd-checkbox-background" width="30" height="30" x="1" y="1" rx="6" fill="none"></rect><path class="tsd-checkbox-checkmark" d="M8.35422 16.8214L13.2143 21.75L24.6458 10.25" stroke="none" stroke-width="3.5" stroke-linejoin="round" fill="none"></path></svg><span>Internal</span></label></li></ul></div><div class="tsd-theme-toggle"><label class="settings-label" for="tsd-theme">Theme</label><select id="tsd-theme"><option value="os">OS</option><option value="light">Light</option><option value="dark">Dark</option></select></div></div></details></div><details open class="tsd-accordion tsd-page-navigation"><summary class="tsd-accordion-summary"><h3><svg width="20" height="20" viewBox="0 0 24 24" fill="none"><use href="../assets/icons.svg#icon-chevronDown"></use></svg>On This Page</h3></summary><div class="tsd-accordion-details"><a href="#user-guide"><span>User <wbr/>Guide</span></a><ul><li><a href="#overview"><span>Overview</span></a></li><li><ul><li><a href="#install"><span>Install</span></a></li><li><a href="#import"><span>Import</span></a></li></ul></li><li><a href="#model"><span>Model</span></a></li><li><ul><li><a href="#monomorphic"><span>Monomorphic</span></a></li><li><a href="#extends-relation"><span>Extends <wbr/>Relation</span></a></li><li><a href="#testing-laws-on-composed-instances"><span>Testing <wbr/>Laws on <wbr/>Composed <wbr/>Instances</span></a></li><li><a href="#other-typeclass-↔-typeclass-relations"><span>Other <wbr/>Typeclass ↔ <wbr/>Typeclass <wbr/>Relations</span></a></li><li><a href="#deduplication"><span>Deduplication</span></a></li><li><a href="#check-vs-test"><span>Check vs. <wbr/>Test</span></a></li></ul></li><li><a href="#usage"><span>Usage</span></a></li><li><ul><li><a href="#testing-laws"><span>Testing <wbr/>Laws</span></a></li><li><ul><li><a href="#typeclass-laws-for-concrete-types"><span>Typeclass <wbr/>Laws <wbr/>For <wbr/>Concrete <wbr/>Types</span></a></li><li><a href="#typeclass-laws-for-parameterized-types"><span>Typeclass <wbr/>Laws <wbr/>For <wbr/>Parameterized <wbr/>Types</span></a></li><li><a href="#typeclass-law-testing-api"><span>Typeclass <wbr/>Law <wbr/>Testing API</span></a></li><li><a href="#contravariant-typeclass-laws"><span>Contravariant <wbr/>Typeclass <wbr/>Laws</span></a></li><li><a href="#schema-laws"><span>Schema <wbr/>Laws</span></a></li><li><a href="#writing-new-laws"><span>Writing <wbr/>New <wbr/>Laws</span></a></li><li><a href="#configure-fast-check-runtime"><span>Configure fast-<wbr/>check <wbr/>Runtime</span></a></li></ul></li><li><a href="#checking-laws"><span>Checking <wbr/>Laws</span></a></li><li><a href="#arbitraries-for-effect-ts-datatypes-and-functions-of-higher-kinded-types"><span>Arbitraries for effect-<wbr/>ts <wbr/>Datatypes and <wbr/>Functions of <wbr/>Higher-<wbr/>Kinded <wbr/>Types</span></a></li></ul></li></ul></div></details></div><div class="site-menu"><nav class="tsd-navigation"><a href="../modules.html">effect-ts-laws</a><ul class="tsd-small-nested-navigation" id="tsd-nav-container"><li>Loading...</li></ul></nav></div></div></div><footer></footer><div class="overlay"></div></body></html>
