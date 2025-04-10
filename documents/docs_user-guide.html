@@ -114,9 +114,9 @@ this type of coverage.</p>
 the API, and imitating the <em>ancestors</em> of this library from the Scala
 and Haskell languages, the high-level typeclass law testing interface is
 monomorphic, I.e.: <code>A</code>=<code>B</code>=<code>C</code>.</p>
-<p>The single type we used for typeclass testing is <code>readonly number[]</code>. Thus when
-testing the <code>Option</code> datatype, for example, the actual type used in the tests
-will be <code>Option&lt;Mono&gt; ≡ Option&lt;readonly number[]&gt;</code>.</p>
+<p>The single type we used for typeclass testing is <code>Option&lt;number&gt;</code>. Thus when
+testing the <code>Array</code> datatype, for example, the actual type used in the tests
+will be <code>Array&lt;Mono&gt; ≡ Array&lt;Option&lt;number&gt;&gt;</code>.</p>
 <p>In some cases, this underlying type breaks the test. For example,
 <a href="https://react.dev/">React</a> functional components are functions that will only
 accept a single argument of type <code>object</code>, simulating named arguments. The
@@ -158,7 +158,7 @@ will build a Monoid using <code>Applicative.getMonoid</code> and run it through 
 <a href="https://github.com/middle-ages/effect-ts-laws/blob/main/src/laws/typeclass/concrete/Monoid.ts">Monoid typeclass laws</a>.</p>
 <p>In this example, the Monoid  laws are only run if a Monoid instance for the
 underlying datatype has been found. Because the typeclass law tests are
-<a href="#monomorphic">monomorphic</a> and our underlying type is <code>readonly number[]</code>, we
+<a href="#monomorphic">monomorphic</a> and our underlying type is <code>Option&lt;number&gt;</code>, we
 always have a Monoid instance for the underlying type.</p>
 <p>The Applicative laws are also related to the <a href="https://github.com/middle-ages/effect-ts-laws/blob/main/src/laws/typeclass/parameterized/Monad.ts">Monad laws</a>.
 If given an instance of
